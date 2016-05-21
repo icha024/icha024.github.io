@@ -28,6 +28,7 @@ tags:
   - parser
 ---
 When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP\_SERVICES environment variable. This is a handy util library for parsing Bluemix VCAP\_SERVICES configurations JSON. Common configs classess are provided so it’ll even work with auto-completion on your favorite IDE. No more messy JSON config parsing!
+<!--more-->
 
 ## Usage example
 

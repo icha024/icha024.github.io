@@ -2,17 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Clianz: Tech and stuff from NZ</title>
-    <description>Thoughts exploration in tech
+    <description>Thoughts exploration on software, hardware, and all things in technology.
 </description>
-    <link>http://yourdomain.com/</link>
-    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 21 May 2016 18:12:08 +0100</pubDate>
-    <lastBuildDate>Sat, 21 May 2016 18:12:08 +0100</lastBuildDate>
+    <link>/</link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 21 May 2016 19:15:53 +0100</pubDate>
+    <lastBuildDate>Sat, 21 May 2016 19:15:53 +0100</lastBuildDate>
     <generator>Jekyll v3.1.5</generator>
     
       <item>
         <title>Things You Should Know Before Choosing Bluemix</title>
-        <description>&lt;p&gt;Bluemix is a cloud service provider that let will host your web app for you on the cloud. Similar to Amazon’s AWS, Microsoft’s Azure, Google’s Cloud Engine, Saleforce’s Heroku, Redhat’s Openshift, etc.&lt;/p&gt;
+        <description>&lt;p&gt;Bluemix is a cloud service provider that let will host your web app for you on the cloud. Similar to Amazon’s AWS, Microsoft’s Azure, Google’s Cloud Engine, Saleforce’s Heroku, Redhat’s Openshift, etc.
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -34,8 +35,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 30 Apr 2016 09:21:49 +0100</pubDate>
-        <link>http://yourdomain.com/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</guid>
+        <link>/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</link>
+        <guid isPermaLink="true">/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</guid>
         
         
         <category>Bluemix</category>
@@ -45,12 +46,93 @@
       </item>
     
       <item>
-        <title>Cake Pattern and Magnet Pattern in Scala</title>
-        <description>&lt;p&gt;Last week I &lt;a href=&quot;https://github.com/icha024/HelloScala/tree/master2/HelloScala/src/main/scala/com/github/icha024&quot; target=&quot;_blank&quot;&gt;started looking into Scala&lt;/a&gt;, it’s one of those things that has been on my to-do list for a very long time and but never got to it until now. Looking back, I should have bumped it up the list a long time ago.&lt;/p&gt;
+        <title>Magnet Pattern in Scala</title>
+        <description>&lt;p&gt;Continuing from the previous post on Scala’s Cake Pattern, here is a quick explaination of the Magnet pattern.&lt;/p&gt;
+
+&lt;h2 id=&quot;magnet-pattern&quot;&gt;Magnet Pattern&lt;/h2&gt;
+&lt;p&gt;You are probably familiar with method overloading (ie. multiple method with the same name, but different parameter). This is very popular in Java, but is still not available in some modern languages like GoLang because designer to argue it clutters up the language.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;What do you do if you want a method that do different things with different parameter without overloading method? Simple answer is to pass in a single ‘object’ that encapsulate all the parameters and optional stuff you want. This is the Magnet pattern in a nutshell.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-implicit-magnet&quot;&gt;The Implicit Magnet&lt;/h3&gt;
+
+&lt;p&gt;One of the nice features of Scala is ‘implicit’ method. Here you can define a method with ‘implicit’ tag, and when you didn’t call a method with the exact signature, the compiler will auto-magically find the best matching method to use to fill in the missing gap (implicitly).&lt;/p&gt;
+
+&lt;h3 id=&quot;scala-magnet-pattern-example&quot;&gt;Scala Magnet Pattern Example&lt;/h3&gt;
+
+&lt;p&gt;(&lt;a href=&quot;https://github.com/icha024/HelloScala/blob/master2/HelloScala/src/main/scala/com/github/icha024/MyMagnetChecker.scala&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Here is a little demo program to show this Magnet pattern.&lt;/p&gt;
+
+&lt;p&gt;Notice how MyMagnet is declared – I did not provide any ‘String’ or ‘Int’ type constructor. Scala is smart enough to find the matching implicit method for ‘String’ and ‘Int’ in my object and still construct it properly.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnetChecker&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// should probably be sealed
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Int&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Type is a String: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;String type: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromTwoString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Type is a String type 2: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_2&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;String2 type: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_2&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mag&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;MyMagnet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Unit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Finding magnet of some type... &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;abc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with String constructor
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with Int constructor
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xyz&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ijk&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with (String, String) tuple constructor
+&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Magnet pattern = Instead of method overloading, we use one big pojo with variable amount of fields.
+&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Then instead of messy if/else checks on each field of the big pojo to run different init, we use &#39;implicit&#39; method feature of Scala.
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 26 Apr 2016 09:46:21 +0100</pubDate>
+        <link>/2016/04/26/scala-magnet-pattern/</link>
+        <guid isPermaLink="true">/2016/04/26/scala-magnet-pattern/</guid>
+        
+        <category>Cake pattern</category>
+        
+        <category>Magnet pattern</category>
+        
+        <category>Scala</category>
+        
+        
+        <category>Scala</category>
+        
+      </item>
+    
+      <item>
+        <title>Cake Pattern in Scala</title>
+        <description>&lt;p&gt;Last week I &lt;a href=&quot;https://github.com/icha024/HelloScala/tree/master2/HelloScala/src/main/scala/com/github/icha024&quot; target=&quot;_blank&quot;&gt;started looking into Scala&lt;/a&gt;, it’s one of those things that has been on my to-do list for a very long time and but never got to it until now. Looking back, I should have bumped it up the list a long time ago.
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;A couple of interesting patterns I’ve came across was the Cake and the Magnet pattern. I usually find it useful to relate new things to my old understanding in other technology stack, and being primarily a Java developer, here is a my short explanation with Java.&lt;/p&gt;
 
-&lt;h2 id=&quot;cake-pattern&quot;&gt;Cake Pattern&lt;/h2&gt;
+&lt;h2 id=&quot;cake-pattern-explained&quot;&gt;Cake Pattern Explained&lt;/h2&gt;
 
 &lt;p&gt;This ‘Cake Pattern’ is a random name (IMO) of what Java developer normally called ‘best practice dependency injection (DI)’ with Spring. Many of you here have probably been doing this for a very long time already in the Java/Spring world. Basically it means ‘one should only inject via interface, not concrete class’.&lt;/p&gt;
 
@@ -174,71 +256,10 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-
-&lt;h2 id=&quot;magnet-pattern&quot;&gt;Magnet Pattern&lt;/h2&gt;
-
-&lt;p&gt;You are probably familiar with method overloading (ie. multiple method with the same name, but different parameter). This is very popular in Java, but is still not available in some modern languages like GoLang because designer to argue it clutters up the language.&lt;/p&gt;
-
-&lt;p&gt;What do you do if you want a method that do different things with different parameter without overloading method? Simple answer is to pass in a single ‘object’ that encapsulate all the parameters and optional stuff you want. This is the Magnet pattern in a nutshell.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-implicit-magnet&quot;&gt;The Implicit Magnet&lt;/h3&gt;
-
-&lt;p&gt;One of the nice features of Scala is ‘implicit’ method. Here you can define a method with ‘implicit’ tag, and when you didn’t call a method with the exact signature, the compiler will auto-magically find the best matching method to use to fill in the missing gap (implicitly).&lt;/p&gt;
-
-&lt;h3 id=&quot;scala-magnet-pattern-example&quot;&gt;Scala Magnet Pattern Example&lt;/h3&gt;
-
-&lt;p&gt;(&lt;a href=&quot;https://github.com/icha024/HelloScala/blob/master2/HelloScala/src/main/scala/com/github/icha024/MyMagnetChecker.scala&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;)&lt;/p&gt;
-
-&lt;p&gt;Here is a little demo program to show this Magnet pattern.&lt;/p&gt;
-
-&lt;p&gt;Notice how MyMagnet is declared – I did not provide any ‘String’ or ‘Int’ type constructor. Scala is smart enough to find the matching implicit method for ‘String’ and ‘Int’ in my object and still construct it properly.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnetChecker&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// should probably be sealed
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Int&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Type is a String: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;String type: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromTwoString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Type is a String type 2: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_2&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;String2 type: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_2&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mag&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;MyMagnet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Unit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Finding magnet of some type... &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;abc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with String constructor
-&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with Int constructor
-&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xyz&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ijk&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with (String, String) tuple constructor
-&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;// Magnet pattern = Instead of method overloading, we use one big pojo with variable amount of fields.
-&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Then instead of messy if/else checks on each field of the big pojo to run different init, we use &#39;implicit&#39; method feature of Scala.
-&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 </description>
         <pubDate>Tue, 26 Apr 2016 09:46:20 +0100</pubDate>
-        <link>http://yourdomain.com/2016/04/26/scala-cake-pattern-and-magnet-pattern/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2016/04/26/scala-cake-pattern-and-magnet-pattern/</guid>
+        <link>/2016/04/26/scala-cake-pattern/</link>
+        <guid isPermaLink="true">/2016/04/26/scala-cake-pattern/</guid>
         
         <category>Cake pattern</category>
         
@@ -254,8 +275,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
       <item>
         <title>Configuring Spring MVC Async Threads</title>
         <description>&lt;h3 id=&quot;spring-mvc-aync--awesome&quot;&gt;Spring MVC Aync – Awesome!&lt;/h3&gt;
-
-&lt;p&gt;The great thing I love about Spring web framework is the abundance of features and flexibility. The ‘callable’ async web request handler that came with &lt;a href=&quot;https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/&quot; target=&quot;_blank&quot;&gt;Spring MVC 3.2&lt;/a&gt; is one of them. Basically we can return a ‘callable’ wrapping the type you’d normally use – and it’ll auto-magically turn it into an async web call.&lt;/p&gt;
+&lt;p&gt;The best thing I love about Spring web framework is the abundance of features and flexibility. The ‘callable’ async web request handler that came with &lt;a href=&quot;https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/&quot; target=&quot;_blank&quot;&gt;Spring MVC 3.2&lt;/a&gt; is one of them. Basically we can return a ‘callable’ wrapping the type you’d normally use – and it’ll auto-magically turn it into an async web call.
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;Here is an example of it (Spring Boot + Java 8), this just echoes the request in the response:&lt;/p&gt;
 
@@ -324,8 +345,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;/div&gt;
 </description>
         <pubDate>Wed, 24 Feb 2016 14:20:52 +0000</pubDate>
-        <link>http://yourdomain.com/2016/02/24/configuring-spring-mvc-async-threads/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2016/02/24/configuring-spring-mvc-async-threads/</guid>
+        <link>/2016/02/24/configuring-spring-mvc-async-threads/</link>
+        <guid isPermaLink="true">/2016/02/24/configuring-spring-mvc-async-threads/</guid>
         
         <category>async</category>
         
@@ -352,7 +373,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
         <title>Cloudant Spring Boot Auto-Configuration</title>
         <description>&lt;p&gt;Spring Boot auto-configuration binding for Cloudant:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/icha024/cloudant-spring-boot-starter&quot;&gt;https://github.com/icha024/cloudant-spring-boot-starter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/icha024/cloudant-spring-boot-starter&quot;&gt;https://github.com/icha024/cloudant-spring-boot-starter&lt;/a&gt;
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
 
@@ -432,8 +454,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;p&gt;Bluemix’s VCAP_SERVICES environment variable containing a Cloudant service will always take precedence over any Spring configuration. This is useful – Local development will use the Spring configuration properties, and promoting it to Bluemix will automatically use the environment configured instance. If Spring’s configuration is desired, just remove the Cloudant service binding from your Bluemix app.&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Jan 2016 12:50:20 +0000</pubDate>
-        <link>http://yourdomain.com/2016/01/25/cloudant-config/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2016/01/25/cloudant-config/</guid>
+        <link>/2016/01/25/cloudant-config/</link>
+        <guid isPermaLink="true">/2016/01/25/cloudant-config/</guid>
         
         <category>auto-configuration</category>
         
@@ -474,7 +496,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
     
       <item>
         <title>Bluemix Config Parser (Java)</title>
-        <description>&lt;p&gt;When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP_SERVICES environment variable. This is a handy util library for parsing Bluemix VCAP_SERVICES configurations JSON. Common configs classess are provided so it’ll even work with auto-completion on your favorite IDE. No more messy JSON config parsing!&lt;/p&gt;
+        <description>&lt;p&gt;When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP_SERVICES environment variable. This is a handy util library for parsing Bluemix VCAP_SERVICES configurations JSON. Common configs classess are provided so it’ll even work with auto-completion on your favorite IDE. No more messy JSON config parsing!
+&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;usage-example&quot;&gt;Usage example&lt;/h2&gt;
 
@@ -554,8 +577,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;p&gt;Just fork this project, follow the pattern to add bindings/tests, then raise a pull request.&lt;/p&gt;
 </description>
         <pubDate>Fri, 15 Jan 2016 22:55:48 +0000</pubDate>
-        <link>http://yourdomain.com/2016/01/15/bluemix-config-parser-2/</link>
-        <guid isPermaLink="true">http://yourdomain.com/2016/01/15/bluemix-config-parser-2/</guid>
+        <link>/2016/01/15/bluemix-config-parser-2/</link>
+        <guid isPermaLink="true">/2016/01/15/bluemix-config-parser-2/</guid>
         
         <category>Bluemix</category>
         

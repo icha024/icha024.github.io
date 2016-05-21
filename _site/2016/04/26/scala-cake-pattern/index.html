@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  <title>Cake Pattern in Scala</title>
+  <meta name="description" content="Last week I started looking into Scala, it’s one of those things that has been on my to-do list for a very long time and but never got to it until now. Looki...">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="viewport" content="width=device-width initial-scale=1">
+
+  <link rel="shortcut icon" href="">
+
+
+  
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400">
+  <link rel="stylesheet" href="/css/screen.css">
+
+  
+  <link rel="canonical" href="/2016/04/26/scala-cake-pattern/">
+  <link rel="alternate" type="application/atom+xml" title="Clianz: Tech and stuff from NZ" href="/feed.xml" />
+
+  <script type="text/javascript" src="/assets/javascripts/jquery-2.1.4.min.js"></script>
+</head>
+
+
+  <body class="">
+
+    
+
+<article role="main" class="">
+    <header>
+      <a href="/" id="home_link">«</a>
+      <div class="meta"><time datetime="2016-04-26"><a href="/2016/04/26/scala-cake-pattern/">April 26, 2016</a></time>
+        <span class="count" id="js-reading-time">&nbsp;</span>
+      </div>
+      <h1>Cake Pattern in Scala</h1>
+    </header>
+
+    <div class="text" id="js-post-content">
+        <p>Last week I <a href="https://github.com/icha024/HelloScala/tree/master2/HelloScala/src/main/scala/com/github/icha024" target="_blank">started looking into Scala</a>, it’s one of those things that has been on my to-do list for a very long time and but never got to it until now. Looking back, I should have bumped it up the list a long time ago.
+<!--more--></p>
+
+<p>A couple of interesting patterns I’ve came across was the Cake and the Magnet pattern. I usually find it useful to relate new things to my old understanding in other technology stack, and being primarily a Java developer, here is a my short explanation with Java.</p>
+
+<h2 id="cake-pattern-explained">Cake Pattern Explained</h2>
+
+<p>This ‘Cake Pattern’ is a random name (IMO) of what Java developer normally called ‘best practice dependency injection (DI)’ with Spring. Many of you here have probably been doing this for a very long time already in the Java/Spring world. Basically it means ‘one should only inject via interface, not concrete class’.</p>
+
+<h3 id="dependency-injection">Dependency injection</h3>
+
+<p>Imagine if I have a service that needs to do some data operation, normally we’d create a ‘Service’ class with a ‘DAO’ member – where ‘DAO’ is an interface. At runtime, we’d inject what DAO implementation we want, eg. SqlDao or CloudantDao for example.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>MyService –(uses)–&gt; GenericDAO interface**
+</code></pre>
+</div>
+
+<p>Here in Scala a ‘trait’ act like a plain old Java interface or contain implementation (like Java 8 ‘default’ method on interface), so we use it to declare both interface and implementation:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>SqlDao –(implements)–&gt; GenericDAO interface
+
+CloudantDao –(implements)–&gt; GenericDAO interface
+</code></pre>
+</div>
+
+<p>Then at when you need to run the code, just inject whichever implementation you want into the service</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>MyService –(uses)–&gt; GenericDAO interface (with SqlDao implementation injected) 
+</code></pre>
+</div>
+
+<p><em>or</em></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>MyService –(uses)–&gt; GenericDAO interface (with CloudantDao implementation injected) 
+</code></pre>
+</div>
+
+<h3 id="scala-cake-pattern-example">Scala Cake Pattern Example</h3>
+
+<p>(<a href="https://github.com/icha024/HelloScala/blob/master2/HelloScala/src/main/scala/com/github/icha024/MyCake.scala" target="_blank">github</a>)</p>
+
+<p>Here is a little demo program to show this DI concept.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
+
+<span class="k">object</span> <span class="nc">MyCake</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+
+  <span class="c1">// This is an 'interface'
+</span>  <span class="k">trait</span> <span class="nc">GenericDao</span> <span class="o">{</span>
+    <span class="k">def</span> <span class="nc">Imp</span><span class="k">:</span> <span class="kt">String</span>
+  <span class="o">}</span>
+
+  <span class="c1">// This is like implementing interface with default in Java8 (An implementation)
+</span>  <span class="k">trait</span> <span class="nc">SqlDao</span> <span class="k">extends</span> <span class="nc">GenericDao</span> <span class="o">{</span> 
+    <span class="k">def</span> <span class="nc">Imp</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"SQL Implementation"</span>
+  <span class="o">}</span>
+
+  <span class="c1">// This is like implementing interface with default in Java8 (An implementation)
+</span>  <span class="k">trait</span> <span class="nc">CloudantDao</span> <span class="k">extends</span> <span class="nc">GenericDao</span> <span class="o">{</span>
+
+    <span class="k">def</span> <span class="nc">Imp</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"Cloudant Implementation"</span>
+  <span class="o">}</span>
+
+  <span class="k">trait</span> <span class="nc">MyServiceTrait</span> <span class="o">{</span>
+    <span class="c1">// This relies on 'interface' instead of 'implementation' - it just normal Java/Spring best practice anyway.
+</span>    <span class="n">dao</span><span class="k">:</span> <span class="kt">GenericDao</span> <span class="o">=&gt;</span> <span class="c1">// Syntax for trait 'self type annotation', we really should just call it 'extending an interface'
+</span>    <span class="n">println</span><span class="o">(</span><span class="s">"My implementation is: "</span> <span class="o">+</span> <span class="n">dao</span><span class="o">.</span><span class="nc">Imp</span><span class="o">)</span>
+  <span class="o">}</span>
+
+  <span class="k">val</span> <span class="n">svc</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">MyServiceTrait</span> <span class="k">with</span> <span class="nc">CloudantDao</span>  <span class="c1">// DI with Cloudant Impl
+</span>  <span class="n">println</span><span class="o">(</span><span class="s">"svc using Cloudant DI returns: "</span> <span class="o">+</span> <span class="n">svc</span><span class="o">.</span><span class="nc">Imp</span><span class="o">)</span>
+
+  <span class="k">val</span> <span class="n">svc2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">MyServiceTrait</span> <span class="k">with</span> <span class="nc">SqlDao</span>  <span class="c1">// DI with SQL Impl
+</span>  <span class="n">println</span><span class="o">(</span><span class="s">"svc2 using SQL DI returns: "</span> <span class="o">+</span> <span class="n">svc2</span><span class="o">.</span><span class="nc">Imp</span><span class="o">)</span>
+
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p><strong><em>Update:</em> But wait – self type annotation is more like ‘inheritance’ than ‘composition’</strong></p>
+
+<p>After having a chat with a colleague – notice in the example above there is:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dao: GenericDao =&gt; 
+</code></pre>
+</div>
+
+<p>In Java/Spring, DI is usually composition – but here we are doing DI via traits and the self type annotation is more like inheriting. Normally, in most example I saw, it’s named ‘this’ instead of ‘dao’ – I guess that make more sense if we are inheriting (injecting) multiple traits. See the updated example below multiple traits:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
+
+<span class="k">object</span> <span class="nc">MyCake</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
+
+  <span class="c1">// shared
+</span>
+  <span class="k">trait</span> <span class="nc">AnotherTrait</span> <span class="o">{</span>
+    <span class="c1">// Some method
+</span>  <span class="o">}</span>
+
+  <span class="k">trait</span> <span class="nc">GenericDao</span> <span class="o">{</span> <span class="c1">// This is an 'interface'
+</span>    <span class="k">def</span> <span class="nc">Imp</span><span class="k">:</span> <span class="kt">String</span>
+  <span class="o">}</span>
+
+  <span class="k">trait</span> <span class="nc">SqlDao</span> <span class="k">extends</span> <span class="nc">GenericDao</span> <span class="o">{</span> <span class="c1">// This is like implementing interface with default in Java8 (An implementation)
+</span>    <span class="k">def</span> <span class="nc">Imp</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"SQL Implementation"</span>
+  <span class="o">}</span>
+
+  <span class="k">trait</span> <span class="nc">CloudantDao</span> <span class="k">extends</span> <span class="nc">GenericDao</span> <span class="o">{</span> <span class="c1">// This is like implementing interface with default in Java8 (An implementation)
+</span>    <span class="k">def</span> <span class="nc">Imp</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">"Cloudant Implementation"</span>
+  <span class="o">}</span>
+
+  <span class="k">trait</span> <span class="nc">MyServiceTrait</span> <span class="o">{</span>
+    <span class="c1">// This relies on 'interface' instead of 'implementation' - it just normal Java/Spring best practice anyway.
+</span>    <span class="k">this:</span> <span class="kt">GenericDao</span> <span class="kt">with</span> <span class="kt">AnotherTrait</span> <span class="o">=&gt;</span> <span class="c1">// Syntax for trait 'self type annotation', we really should just call it 'extending an interface'
+</span>    <span class="n">println</span><span class="o">(</span><span class="s">"My implementation is: "</span> <span class="o">+</span> <span class="k">this</span><span class="o">.</span><span class="nc">Imp</span><span class="o">)</span>
+  <span class="o">}</span>
+
+
+  <span class="c1">// service customisation (inject stuff here)
+</span>
+  <span class="k">val</span> <span class="n">svc</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">MyServiceTrait</span> <span class="k">with</span> <span class="nc">CloudantDao</span> <span class="k">with</span> <span class="nc">AnotherTrait</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">"svc using Cloudant DI returns: "</span> <span class="o">+</span> <span class="n">svc</span><span class="o">.</span><span class="nc">Imp</span><span class="o">)</span>
+
+  <span class="k">val</span> <span class="n">svc2</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">MyServiceTrait</span> <span class="k">with</span> <span class="nc">SqlDao</span> <span class="k">with</span> <span class="nc">AnotherTrait</span>
+  <span class="n">println</span><span class="o">(</span><span class="s">"svc2 using SQL DI returns: "</span> <span class="o">+</span> <span class="n">svc2</span><span class="o">.</span><span class="nc">Imp</span><span class="o">)</span>
+
+<span class="o">}</span>
+</code></pre>
+</div>
+
+    </div>
+
+    <menu>
+      <a href="" id="btn_share" class="btn" title="Share">
+        <span aria-hidden="true" data-icon="S"></span>
+        <strong>Share</strong>
+      </a>
+      <a href="http://twitter.com/share?text=Cake+Pattern+in+Scala&url=/2016/04/26/scala-cake-pattern/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" id="btn_comment" class="btn" target="_blank">
+        <span aria-hidden="true" data-icon="C"></span> Comment on Twitter
+      </a>
+    </menu>
+</article>
+
+<footer role="contentinfo" class='post-footer'>
+    <div class="inner">
+        <div class="vcard">
+            <a href="/feed.xml" id="btn_feed" class="btn" title="Feed" target="_blank">
+                <span aria-hidden="true" data-icon=")"></span>
+                <strong>Feed</strong>
+            </a>
+
+            
+
+            <div class="details">
+                <h4><a href="" class="url n">Clianz: Tech and stuff from NZ</a></h4>
+                <a href="" class="js-remove-domain-schema"></a><br>
+            </div>
+        </div>
+        <div id="user_bio">
+            <div class="inner">
+                Thoughts exploration on software, hardware, and all things in technology.
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="share_modal">
+    <div class="wrap">
+        <div class="inner">
+            <header>
+                Share
+                <a href="" class="close" title="Close">&times;</a>
+            </header>
+
+            <div class="roon-share-links">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-dnt="true">Tweet</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+                <div id="fb-elems">
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=463438580397968";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false" data-font="arial"></div>
+                </div>
+
+                <div id="pinit-btn">
+                    <a href="//pinterest.com/pin/create/button/?url=/2016/04/26/scala-cake-pattern/&amp;description=Cake Pattern in Scala-Clianz: Tech and stuff from NZ " data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></a>
+                    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+window.onload = function () {
+  reading_time();
+}
+function get_text(el) {
+  ret = "";
+  var length = el.childNodes.length;
+  for(var i = 0; i < length; i++) {
+    var node = el.childNodes[i];
+    if(node.nodeType != 8) {
+      ret += node.nodeType != 1 ? node.nodeValue : get_text(node);
+    }
+  }
+  return ret;
+}
+function reading_time () {
+  var post_content = document.getElementById('js-post-content');
+  if (post_content) {
+    var words = get_text(post_content),
+      count = words.split(/\s+/).length,
+    read_time = Math.ceil((count / 150)),
+        read_time_node = document.createTextNode(read_time + ' min read');
+    document.getElementById('js-reading-time').appendChild(read_time_node);
+  }
+}
+$(function(){
+  var share_modal = $("#share_modal"),
+  update_social_links = true;
+
+  $("#btn_share").click(function(){
+    var that = $(this);
+    share_modal.fadeIn(200);
+    return false;
+  });
+
+  share_modal.click(function(e){
+    if (e.target.className == "wrap" || e.target.id == "share_modal") {
+      share_modal.fadeOut(200);
+    }
+    return false;
+  });
+
+  share_modal.find("div.inner > header > a.close").click(function(){
+    share_modal.fadeOut(200);
+    return false;
+  });
+});
+</script>
+
+
+    <!--
+    
+    <a href="" id="blog_badge">
+            <span style="background-image:
+            url('/assets/images/');"></span>
+        </a>
+    
+    -->
+
+    <script>
+      function no_schema_links () {
+        var links = document.querySelectorAll('.js-remove-domain-schema');
+        if (links) {
+          for (i = 0; i < links.length; ++i) {
+            var link = links[i],
+              text = link.innerHTML,
+            no_schema = text.replace(/.*?:\/\//g, "");
+            link.innerHTML = no_schema;
+          }
+        }
+      }
+
+      window.onload = function () {
+        no_schema_links();
+      }
+    </script>
+  </body>
+
+</html>

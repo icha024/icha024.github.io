@@ -25,8 +25,8 @@ tags:
   - thread
 ---
 ### Spring MVC Aync – Awesome!
-
-The great thing I love about Spring web framework is the abundance of features and flexibility. The ‘callable’ async web request handler that came with <a href="https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/" target="_blank">Spring MVC 3.2</a> is one of them. Basically we can return a ‘callable’ wrapping the type you’d normally use – and it’ll auto-magically turn it into an async web call.
+The best thing I love about Spring web framework is the abundance of features and flexibility. The ‘callable’ async web request handler that came with <a href="https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/" target="_blank">Spring MVC 3.2</a> is one of them. Basically we can return a ‘callable’ wrapping the type you’d normally use – and it’ll auto-magically turn it into an async web call.
+<!--more-->
 
 Here is an example of it (Spring Boot + Java 8), this just echoes the request in the response:
 

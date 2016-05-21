@@ -33,8 +33,9 @@ tags:
   - springboot
 ---
 Spring Boot auto-configuration binding for Cloudant:
-  
+
 <https://github.com/icha024/cloudant-spring-boot-starter>
+<!--more-->
 
 # Usage
 

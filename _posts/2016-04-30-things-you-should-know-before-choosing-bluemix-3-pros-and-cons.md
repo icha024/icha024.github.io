@@ -17,6 +17,7 @@ categories:
   - Cloud
 ---
 Bluemix is a cloud service provider that let will host your web app for you on the cloud. Similar to Amazon’s AWS, Microsoft’s Azure, Google’s Cloud Engine, Saleforce’s Heroku, Redhat’s Openshift, etc.
+<!--more-->
 
   * **Based on Clound Foundry** – Bluemix can provide container hosting (eg. Docker or VM), but the real interesting one is the Cloud Foundry based solution. It allows for rapid development without worrying about managing the server or the container environment. It takes care of all the mundane bits like setting up basic monitoring system, basic log aggregation, and scaling. You get all those automatically on the web dashboard, or from your command-line if you prefer. Literally all you have to do to deploy webapp, coded in most programming languages, is just one command: 
 
