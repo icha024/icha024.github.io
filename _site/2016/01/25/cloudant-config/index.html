@@ -8,7 +8,7 @@
 
   
   <title>Cloudant Spring Boot Auto-Configuration</title>
-  <meta name="description" content="Spring Boot auto-configuration binding for Cloudant:https://github.com/icha024/cloudant-spring-boot-starter">
+  <meta name="description" content="With this starter for SpringBoot, using Cloudant and CouchDB couldn’t be easier!The Github project for Spring Boot auto-configuration binding for Cloudant is...">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="viewport" content="width=device-width initial-scale=1">
@@ -42,32 +42,14 @@
     </header>
 
     <div class="text" id="js-post-content">
-        <p>Spring Boot auto-configuration binding for Cloudant:</p>
+        <p>With this starter for SpringBoot, using Cloudant and CouchDB couldn’t be easier!</p>
 
-<p><a href="https://github.com/icha024/cloudant-spring-boot-starter">https://github.com/icha024/cloudant-spring-boot-starter</a>
+<p>The Github project for Spring Boot auto-configuration binding for Cloudant is available at
+<a href="https://github.com/icha024/cloudant-spring-boot-starter">https://github.com/icha024/cloudant-spring-boot-starter</a>
 <!--more--></p>
 
-<h1 id="usage">Usage</h1>
-
-<h2 id="injecting-cloudant-client">Injecting Cloudant client</h2>
-
-<p>Just inject the client:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nd">@Autowired</span>
-<span class="n">CloudantClient</span> <span class="n">cloudant</span>
-</code></pre>
-</div>
-
-<p>Then start using it:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Database</span> <span class="n">db</span> <span class="o">=</span> <span class="n">cloudant</span><span class="o">.</span><span class="na">database</span><span class="o">(</span><span class="s">"mydb"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
-<span class="n">db</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
-</code></pre>
-</div>
-
-<h2 id="injecting-database-directly">Injecting database directly</h2>
-
-<p>Or alternatively, you may inject a DB directly:</p>
+<h2 id="injecting-cloudant">Injecting Cloudant</h2>
+<p>Just inject the cloudant DB into your code:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code><span class="nd">@Bean</span>
 <span class="kd">public</span> <span class="n">Database</span> <span class="nf">mydb</span><span class="p">(</span><span class="n">CloudantClient</span> <span class="n">cloudant</span><span class="o">)</span> <span class="o">{</span>
@@ -95,8 +77,6 @@
 </code></pre>
 </div>
 
-<h1 id="configuration">Configuration</h1>
-
 <h2 id="spring-boot-configuration">Spring Boot Configuration</h2>
 
 <p>Configurations can be placed in the application.properties (or yml, or json) as usual. The username and password is mandatory.</p>
@@ -120,7 +100,7 @@
 
 <h2 id="bluemix-cloudfoundry-configuration">Bluemix (CloudFoundry) Configuration</h2>
 
-<p>When using Bluemix (CloudFoundry), the client will automatically use the Cloudant service binded to the app instead of the Spring configuration.</p>
+<p>When using Bluemix (CloudFoundry), the client will <strong>automatically</strong> use the Cloudant service binded to the app instead of the Spring configuration.</p>
 
 <p>Bluemix’s VCAP_SERVICES environment variable containing a Cloudant service will always take precedence over any Spring configuration. This is useful – Local development will use the Spring configuration properties, and promoting it to Bluemix will automatically use the environment configured instance. If Spring’s configuration is desired, just remove the Cloudant service binding from your Bluemix app.</p>
 
@@ -131,9 +111,11 @@
         <span aria-hidden="true" data-icon="S"></span>
         <strong>Share</strong>
       </a>
+      <!--
       <a href="http://twitter.com/share?text=Cloudant+Spring+Boot+Auto-Configuration&url=/2016/01/25/cloudant-config/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" id="btn_comment" class="btn" target="_blank">
         <span aria-hidden="true" data-icon="C"></span> Comment on Twitter
       </a>
+      -->
     </menu>
 </article>
 
@@ -184,11 +166,12 @@
                     }(document, 'script', 'facebook-jssdk'));</script>
                     <div class="fb-like" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false" data-font="arial"></div>
                 </div>
-
+<!--
                 <div id="pinit-btn">
                     <a href="//pinterest.com/pin/create/button/?url=/2016/01/25/cloudant-config/&amp;description=Cloudant Spring Boot Auto-Configuration-Clianz: Tech and stuff from NZ " data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png"></a>
                     <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
                 </div>
+-->
             </div>
         </div>
     </div>

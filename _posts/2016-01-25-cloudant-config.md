@@ -32,32 +32,14 @@ tags:
   - spring-boot-starter
   - springboot
 ---
-Spring Boot auto-configuration binding for Cloudant:
+With this starter for SpringBoot, using Cloudant and CouchDB couldn't be easier!
 
+The Github project for Spring Boot auto-configuration binding for Cloudant is available at
 <https://github.com/icha024/cloudant-spring-boot-starter>
 <!--more-->
 
-# Usage
-
-## Injecting Cloudant client
-
-Just inject the client:
-
-```java
-@Autowired
-CloudantClient cloudant
-```
-
-Then start using it:
-
-```java
-Database db = cloudant.database("mydb", true);
-db.save(data);
-```
-
-## Injecting database directly
-
-Or alternatively, you may inject a DB directly:
+## Injecting Cloudant
+Just inject the cloudant DB into your code:
 
 ```java
 @Bean
@@ -85,8 +67,6 @@ mydb.save(data);
 </dependency>
 ```
 
-# Configuration
-
 ## Spring Boot Configuration
 
 Configurations can be placed in the application.properties (or yml, or json) as usual. The username and password is mandatory.
@@ -110,6 +90,6 @@ cloudant.disableSSLAuthentication=false   #Defaults to false.
 
 ## Bluemix (CloudFoundry) Configuration
 
-When using Bluemix (CloudFoundry), the client will automatically use the Cloudant service binded to the app instead of the Spring configuration.
+When using Bluemix (CloudFoundry), the client will **automatically** use the Cloudant service binded to the app instead of the Spring configuration.
 
 Bluemix’s VCAP_SERVICES environment variable containing a Cloudant service will always take precedence over any Spring configuration. This is useful – Local development will use the Spring configuration properties, and promoting it to Bluemix will automatically use the environment configured instance. If Spring’s configuration is desired, just remove the Cloudant service binding from your Bluemix app.

@@ -6,8 +6,8 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 21 May 2016 19:15:53 +0100</pubDate>
-    <lastBuildDate>Sat, 21 May 2016 19:15:53 +0100</lastBuildDate>
+    <pubDate>Sat, 21 May 2016 19:27:44 +0100</pubDate>
+    <lastBuildDate>Sat, 21 May 2016 19:27:44 +0100</lastBuildDate>
     <generator>Jekyll v3.1.5</generator>
     
       <item>
@@ -371,32 +371,14 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
     
       <item>
         <title>Cloudant Spring Boot Auto-Configuration</title>
-        <description>&lt;p&gt;Spring Boot auto-configuration binding for Cloudant:&lt;/p&gt;
+        <description>&lt;p&gt;With this starter for SpringBoot, using Cloudant and CouchDB couldn’t be easier!&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/icha024/cloudant-spring-boot-starter&quot;&gt;https://github.com/icha024/cloudant-spring-boot-starter&lt;/a&gt;
+&lt;p&gt;The Github project for Spring Boot auto-configuration binding for Cloudant is available at
+&lt;a href=&quot;https://github.com/icha024/cloudant-spring-boot-starter&quot;&gt;https://github.com/icha024/cloudant-spring-boot-starter&lt;/a&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
-
-&lt;h2 id=&quot;injecting-cloudant-client&quot;&gt;Injecting Cloudant client&lt;/h2&gt;
-
-&lt;p&gt;Just inject the client:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;CloudantClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cloudant&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Then start using it:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Database&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cloudant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mydb&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;injecting-database-directly&quot;&gt;Injecting database directly&lt;/h2&gt;
-
-&lt;p&gt;Or alternatively, you may inject a DB directly:&lt;/p&gt;
+&lt;h2 id=&quot;injecting-cloudant&quot;&gt;Injecting Cloudant&lt;/h2&gt;
+&lt;p&gt;Just inject the cloudant DB into your code:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Database&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;mydb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CloudantClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cloudant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
@@ -424,8 +406,6 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h1 id=&quot;configuration&quot;&gt;Configuration&lt;/h1&gt;
-
 &lt;h2 id=&quot;spring-boot-configuration&quot;&gt;Spring Boot Configuration&lt;/h2&gt;
 
 &lt;p&gt;Configurations can be placed in the application.properties (or yml, or json) as usual. The username and password is mandatory.&lt;/p&gt;
@@ -449,7 +429,7 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 
 &lt;h2 id=&quot;bluemix-cloudfoundry-configuration&quot;&gt;Bluemix (CloudFoundry) Configuration&lt;/h2&gt;
 
-&lt;p&gt;When using Bluemix (CloudFoundry), the client will automatically use the Cloudant service binded to the app instead of the Spring configuration.&lt;/p&gt;
+&lt;p&gt;When using Bluemix (CloudFoundry), the client will &lt;strong&gt;automatically&lt;/strong&gt; use the Cloudant service binded to the app instead of the Spring configuration.&lt;/p&gt;
 
 &lt;p&gt;Bluemix’s VCAP_SERVICES environment variable containing a Cloudant service will always take precedence over any Spring configuration. This is useful – Local development will use the Spring configuration properties, and promoting it to Bluemix will automatically use the environment configured instance. If Spring’s configuration is desired, just remove the Cloudant service binding from your Bluemix app.&lt;/p&gt;
 </description>
