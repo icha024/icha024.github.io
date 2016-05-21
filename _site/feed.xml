@@ -1,40 +1,608 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ian&#39;s site</title>
-    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+    <title>Clianz: Tech and stuff from NZ</title>
+    <description>Thoughts exploration in tech
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 28 Jan 2016 00:04:25 +0000</pubDate>
-    <lastBuildDate>Thu, 28 Jan 2016 00:04:25 +0000</lastBuildDate>
+    <pubDate>Sat, 21 May 2016 16:46:00 +0100</pubDate>
+    <lastBuildDate>Sat, 21 May 2016 16:46:00 +0100</lastBuildDate>
     <generator>Jekyll v3.1.0</generator>
     
       <item>
-        <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Things You Should Know Before Choosing Bluemix</title>
+        <description>&lt;p&gt;Bluemix is a cloud service provider that let will host your web app for you on the cloud. Similar to Amazon’s AWS, Microsoft’s Azure, Google’s Cloud Engine, Saleforce’s Heroku, Redhat’s Openshift, etc.&lt;/p&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Based on Clound Foundry&lt;/strong&gt; – Bluemix can provide container hosting (eg. Docker or VM), but the real interesting one is the Cloud Foundry based solution. It allows for rapid development without worrying about managing the server or the container environment. It takes care of all the mundane bits like setting up basic monitoring system, basic log aggregation, and scaling. You get all those automatically on the web dashboard, or from your command-line if you prefer. Literally all you have to do to deploy webapp, coded in most programming languages, is just one command:&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
-
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cf push YOUR_APP_NAME
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Pricing&lt;/strong&gt; – This might be more expensive than AWS or Google Compute on paper, but keep in mind this is a PaaS product so that you don’t have to worry about any infrastructure. Bluemix charges for how much memory your app was allocated and for how long. The free tier allows up to 512MB/Hour &lt;strong&gt;per app&lt;/strong&gt; – no matter how many instance you choose to deploy. This means you could have 1 app instance with 512MB allocated, or 2 instance of that same app with 256MB allocated, it’s free. You could also have multiple apps, and as long as each app don’t have more than 512MB allocated – it’s still free. But you might think – if I get 8 instance of an app with 64MB allocated each then I’m getting a great deal for 8 instance deployed right? Yes and no, it doesn’t exactly work that way, your CPU allocation is proportional to how much memory you assign to it. So yes you have 8 instance, but each instance has a smaller CPU time slice – meaning you get 8 slow instances of your app.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Support&lt;/strong&gt; – Even on the free tier, you can still get reasonable support and raise tickets. The respond time is not the fastest, but usually they do respond within a couple of days. Responding to tickets within a couple of days is better than not responding, but it’s sometimes not good enough if you are paying for usage above the free tier.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;SLA&lt;/strong&gt; – No where on their site could I find any SLA promises (as of April 2016). They have been running for over a year now, and there are noticeable outages, usually a couple of times a month. Unless you run a hobby project or small enough business to not care, this might a real problem. I do not think this would affect their large enterprise client though who probably have enough negotiation power to get an SLA in place together with a private/dedicated instance. Saying that, I still use it for my random pet projects and NodeRed on Bluemix is simply awesome!&amp;lt;/ul&amp;gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 </description>
-        <pubDate>Wed, 27 Jan 2016 23:32:39 +0000</pubDate>
-        <link>http://yourdomain.com/jekyll/update/2016/01/27/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://yourdomain.com/jekyll/update/2016/01/27/welcome-to-jekyll.html</guid>
+        <pubDate>Sat, 30 Apr 2016 09:21:49 +0100</pubDate>
+        <link>http://yourdomain.com/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</guid>
         
         
-        <category>jekyll</category>
+        <category>Bluemix</category>
         
-        <category>update</category>
+        <category>Cloud</category>
+        
+      </item>
+    
+      <item>
+        <title>Cake Pattern and Magnet Pattern in Scala</title>
+        <description>&lt;p&gt;Last week I &lt;a href=&quot;https://github.com/icha024/HelloScala/tree/master2/HelloScala/src/main/scala/com/github/icha024&quot; target=&quot;_blank&quot;&gt;started looking into Scala&lt;/a&gt;, it’s one of those things that has been on my to-do list for a very long time and but never got to it until now. Looking back, I should have bumped it up the list a long time ago.&lt;/p&gt;
+
+&lt;p&gt;A couple of interesting patterns I’ve came across was the Cake and the Magnet pattern. I usually find it useful to relate new things to my old understanding in other technology stack, and being primarily a Java developer, here is a my short explanation with Java.&lt;/p&gt;
+
+&lt;h2 id=&quot;cake-pattern&quot;&gt;Cake Pattern&lt;/h2&gt;
+
+&lt;p&gt;This ‘Cake Pattern’ is a random name (IMO) of what Java developer normally called ‘best practice dependency injection (DI)’ with Spring. Many of you here have probably been doing this for a very long time already in the Java/Spring world. Basically it means ‘one should only inject via interface, not concrete class’.&lt;/p&gt;
+
+&lt;h3 id=&quot;dependency-injection&quot;&gt;Dependency injection&lt;/h3&gt;
+
+&lt;p&gt;Imagine if I have a service that needs to do some data operation, normally we’d create a ‘Service’ class with a ‘DAO’ member – where ‘DAO’ is an interface. At runtime, we’d inject what DAO implementation we want, eg. SqlDao or CloudantDao for example.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MyService –(uses)–&amp;gt; GenericDAO interface**
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here in Scala a ‘trait’ act like a plain old Java interface or contain implementation (like Java 8 ‘default’ method on interface), so we use it to declare both interface and implementation:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SqlDao –(implements)–&amp;gt; GenericDAO interface
+
+CloudantDao –(implements)–&amp;gt; GenericDAO interface
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then at when you need to run the code, just inject whichever implementation you want into the service&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MyService –(uses)–&amp;gt; GenericDAO interface (with SqlDao implementation injected) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;or&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MyService –(uses)–&amp;gt; GenericDAO interface (with CloudantDao implementation injected) 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;scala-cake-pattern-example&quot;&gt;Scala Cake Pattern Example&lt;/h3&gt;
+
+&lt;p&gt;(&lt;a href=&quot;https://github.com/icha024/HelloScala/blob/master2/HelloScala/src/main/scala/com/github/icha024/MyCake.scala&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Here is a little demo program to show this DI concept.&lt;/p&gt;
+
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyCake&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// This is an &#39;interface&#39;
+&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// This is like implementing interface with default in Java8 (An implementation)
+&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SqlDao&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SQL Implementation&quot;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// This is like implementing interface with default in Java8 (An implementation)
+&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CloudantDao&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Cloudant Implementation&quot;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyServiceTrait&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// This relies on &#39;interface&#39; instead of &#39;implementation&#39; - it just normal Java/Spring best practice anyway.
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;dao&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Syntax for trait &#39;self type annotation&#39;, we really should just call it &#39;extending an interface&#39;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;My implementation is: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dao&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyServiceTrait&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CloudantDao&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// DI with Cloudant Impl
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;svc using Cloudant DI returns: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyServiceTrait&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SqlDao&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// DI with SQL Impl
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;svc2 using SQL DI returns: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Update:&lt;/em&gt; But wait – self type annotation is more like ‘inheritance’ than ‘composition’&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;After having a chat with a colleague – notice in the example above there is:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dao: GenericDao =&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In Java/Spring, DI is usually composition – but here we are doing DI via traits and the self type annotation is more like inheriting. Normally, in most example I saw, it’s named ‘this’ instead of ‘dao’ – I guess that make more sense if we are inheriting (injecting) multiple traits. See the updated example below multiple traits:&lt;/p&gt;
+
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyCake&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;// shared
+&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AnotherTrait&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// Some method
+&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// This is an &#39;interface&#39;
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SqlDao&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// This is like implementing interface with default in Java8 (An implementation)
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SQL Implementation&quot;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CloudantDao&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// This is like implementing interface with default in Java8 (An implementation)
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Cloudant Implementation&quot;&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyServiceTrait&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// This relies on &#39;interface&#39; instead of &#39;implementation&#39; - it just normal Java/Spring best practice anyway.
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;this:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;GenericDao&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;AnotherTrait&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Syntax for trait &#39;self type annotation&#39;, we really should just call it &#39;extending an interface&#39;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;My implementation is: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+  &lt;span class=&quot;c1&quot;&gt;// service customisation (inject stuff here)
+&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyServiceTrait&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CloudantDao&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AnotherTrait&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;svc using Cloudant DI returns: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyServiceTrait&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SqlDao&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AnotherTrait&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;svc2 using SQL DI returns: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;svc2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Imp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;magnet-pattern&quot;&gt;Magnet Pattern&lt;/h2&gt;
+
+&lt;p&gt;You are probably familiar with method overloading (ie. multiple method with the same name, but different parameter). This is very popular in Java, but is still not available in some modern languages like GoLang because designer to argue it clutters up the language.&lt;/p&gt;
+
+&lt;p&gt;What do you do if you want a method that do different things with different parameter without overloading method? Simple answer is to pass in a single ‘object’ that encapsulate all the parameters and optional stuff you want. This is the Magnet pattern in a nutshell.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-implicit-magnet&quot;&gt;The Implicit Magnet&lt;/h3&gt;
+
+&lt;p&gt;One of the nice features of Scala is ‘implicit’ method. Here you can define a method with ‘implicit’ tag, and when you didn’t call a method with the exact signature, the compiler will auto-magically find the best matching method to use to fill in the missing gap (implicitly).&lt;/p&gt;
+
+&lt;h3 id=&quot;scala-magnet-pattern-example&quot;&gt;Scala Magnet Pattern Example&lt;/h3&gt;
+
+&lt;p&gt;(&lt;a href=&quot;https://github.com/icha024/HelloScala/blob/master2/HelloScala/src/main/scala/com/github/icha024/MyMagnetChecker.scala&quot; target=&quot;_blank&quot;&gt;github&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Here is a little demo program to show this Magnet pattern.&lt;/p&gt;
+
+&lt;p&gt;Notice how MyMagnet is declared – I did not provide any ‘String’ or ‘Int’ type constructor. Scala is smart enough to find the matching implicit method for ‘String’ and ‘Int’ in my object and still construct it properly.&lt;/p&gt;
+
+&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnetChecker&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// should probably be sealed
+&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Int&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Type is a String: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;String type: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myVal&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;implicit&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;convertFromTwoString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Type is a String type 2: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_2&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;String2 type: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;, &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;myTuple&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_2&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mag&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;MyMagnet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Unit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Finding magnet of some type... &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mag&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getRes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;abc&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with String constructor
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with Int constructor
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;findStickyType&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;xyz&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;ijk&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;// create &#39;MyMagnet&#39; with (String, String) tuple constructor
+&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// Magnet pattern = Instead of method overloading, we use one big pojo with variable amount of fields.
+&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// Then instead of messy if/else checks on each field of the big pojo to run different init, we use &#39;implicit&#39; method feature of Scala.
+&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 26 Apr 2016 09:46:20 +0100</pubDate>
+        <link>http://yourdomain.com/2016/04/26/scala-cake-pattern-and-magnet-pattern/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2016/04/26/scala-cake-pattern-and-magnet-pattern/</guid>
+        
+        <category>Cake pattern</category>
+        
+        <category>Magnet pattern</category>
+        
+        <category>Scala</category>
+        
+        
+        <category>Scala</category>
+        
+      </item>
+    
+      <item>
+        <title>Configuring Spring MVC Async Threads</title>
+        <description>&lt;h3 id=&quot;spring-mvc-aync--awesome&quot;&gt;Spring MVC Aync – Awesome!&lt;/h3&gt;
+
+&lt;p&gt;The great thing I love about Spring web framework is the abundance of features and flexibility. The ‘callable’ async web request handler that came with &lt;a href=&quot;https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/&quot; target=&quot;_blank&quot;&gt;Spring MVC 3.2&lt;/a&gt; is one of them. Basically we can return a ‘callable’ wrapping the type you’d normally use – and it’ll auto-magically turn it into an async web call.&lt;/p&gt;
+
+&lt;p&gt;Here is an example of it (Spring Boot + Java 8), this just echoes the request in the response:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@RequestMapping(value = &quot;/echo&quot;)
+public Callable&amp;lt;ResponseEntity&amp;lt;String&amp;gt;&amp;gt; echo(@RequestParam(value = &quot;message&quot;, required = true) String message) {
+	return () -&amp;gt; {
+		return new ResponseEntity&amp;lt;&amp;gt;(message, HttpStatus.OK);
+	};
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now if you deploy this locally, then &lt;a href=&quot;http://localhost:8080/echo?message=auckland&quot;&gt;http://localhost:8080/echo?message=auckland&lt;/a&gt; will echo your request in the response – all done asynchronously on the server.&lt;/p&gt;
+
+&lt;h3 id=&quot;but-its-not-quite-plug--play&quot;&gt;But it’s not quite plug &amp;amp; play…&lt;/h3&gt;
+
+&lt;p&gt;One of the things to watch out for is that the default thread executor should be replaced for production. However, I could not find any good example of this easily. After digging around the code for a while, here is an example of how to configure the async task executor.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/**
+ * Configs for MVC/REST services with &#39;Callable&#39; return types - they spawn background threads, and this configures it.
+ */
+@Configuration
+@ConfigurationProperties(prefix = &quot;web.executor&quot;)
+public class CallableConfig {
+
+	public static final int DEFAULT_POOL_SIZE = 2;
+	public static final int DEFAULT_QUEUE_SIZE = 2;
+
+	private int minPoolSize = DEFAULT_POOL_SIZE;
+	private int maxPoolSize = DEFAULT_POOL_SIZE;
+	private int maxQueueSize = DEFAULT_QUEUE_SIZE;
+
+	@Bean
+	public AsyncTaskExecutor asyncTaskExecutor() {
+		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		executor.setCorePoolSize(DEFAULT_POOL_SIZE);
+		executor.setMaxPoolSize(DEFAULT_POOL_SIZE);
+		executor.setQueueCapacity(DEFAULT_QUEUE_SIZE);
+		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+		executor.setWaitForTasksToCompleteOnShutdown(true);
+		return executor;
+	}
+
+	@Bean
+	public WebMvcConfigurerAdapter webMvcConfigurerAdapter(AsyncTaskExecutor asyncTaskExecutor) {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+				configurer.setTaskExecutor(asyncTaskExecutor);
+				super.configureAsyncSupport(configurer);
+			}
+		};
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;exposing-configurations&quot;&gt;Exposing Configurations&lt;/h3&gt;
+
+&lt;p&gt;The @ConfigurationProperties tag exposes the configuration if you are using Spring Boot. This handy option let you configure it in your application.properties to override the defaults, for example:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;web.executor.minPoolSize=10
+web.executor.maxPoolSize=10
+web.executor.maxQueueSize=20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 24 Feb 2016 14:20:52 +0000</pubDate>
+        <link>http://yourdomain.com/2016/02/24/configuring-spring-mvc-async-threads/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2016/02/24/configuring-spring-mvc-async-threads/</guid>
+        
+        <category>async</category>
+        
+        <category>AsyncTaskExecutor</category>
+        
+        <category>callable</category>
+        
+        <category>configuration</category>
+        
+        <category>Spring MVC</category>
+        
+        <category>thread</category>
+        
+        
+        <category>Java</category>
+        
+        <category>Spring</category>
+        
+        <category>Spring-boot</category>
+        
+      </item>
+    
+      <item>
+        <title>Cloudant Spring Boot Auto-Configuration</title>
+        <description>&lt;p&gt;Spring Boot auto-configuration binding for Cloudant:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/icha024/cloudant-spring-boot-starter&quot;&gt;https://github.com/icha024/cloudant-spring-boot-starter&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;usage&quot;&gt;Usage&lt;/h1&gt;
+
+&lt;h2 id=&quot;injecting-cloudant-client&quot;&gt;Injecting Cloudant client&lt;/h2&gt;
+
+&lt;p&gt;Just inject the client:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Autowired
+CloudantClient cloudant
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then start using it:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Database db = cloudant.database(&quot;mydb&quot;, true);
+db.save(data);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;injecting-database-directly&quot;&gt;Injecting database directly&lt;/h2&gt;
+
+&lt;p&gt;Or alternatively, you may inject a DB directly:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Bean
+public Database mydb(CloudantClient cloudant) {
+	return cloudant.database(&quot;mydb&quot;, true);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then start using it:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Autowired
+Database mydb
+
+mydb.save(data);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;installing-with-maven&quot;&gt;Installing with Maven&lt;/h1&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;com.clianz&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;cloudant-spring-boot-starter&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;0.9.0&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;configuration&quot;&gt;Configuration&lt;/h1&gt;
+
+&lt;h2 id=&quot;spring-boot-configuration&quot;&gt;Spring Boot Configuration&lt;/h2&gt;
+
+&lt;p&gt;Configurations can be placed in the application.properties (or yml, or json) as usual. The username and password is mandatory.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;##### Mandatory configs #####
+cloudant.username=myUserName     #Username as assigned by Cloudant.
+cloudant.password=myPasswd       #Password as assigned by Cloudant.
+
+##### Optional configs #####
+cloudant.account=myAccountName   #Defaults to username if left blank.
+cloudant.url=...                 #Defaults to official server.
+cloudant.proxyURL=...            #URL to proxy server
+cloudant.proxyUser=myUserName    #Proxy username
+cloudant.proxyPassword=myPasswd  #Proxy password.
+cloudant.connectTimeout=300      #Connect timeout in seconds. Default to 300 seconds (5 minutes).
+cloudant.readTimeout=300         #Read timeout in seconds. Default to 300 seconds (5 minutes).
+cloudant.maxConnections=6        #Default to 6.
+cloudant.disableSSLAuthentication=false   #Defaults to false.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;bluemix-cloudfoundry-configuration&quot;&gt;Bluemix (CloudFoundry) Configuration&lt;/h2&gt;
+
+&lt;p&gt;When using Bluemix (CloudFoundry), the client will automatically use the Cloudant service binded to the app instead of the Spring configuration.&lt;/p&gt;
+
+&lt;p&gt;Bluemix’s VCAP_SERVICES environment variable containing a Cloudant service will always take precedence over any Spring configuration. This is useful – Local development will use the Spring configuration properties, and promoting it to Bluemix will automatically use the environment configured instance. If Spring’s configuration is desired, just remove the Cloudant service binding from your Bluemix app.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Jan 2016 12:50:20 +0000</pubDate>
+        <link>http://yourdomain.com/2016/01/25/cloudant-config/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2016/01/25/cloudant-config/</guid>
+        
+        <category>auto-configuration</category>
+        
+        <category>bigdata</category>
+        
+        <category>Bluemix</category>
+        
+        <category>cloudant</category>
+        
+        <category>configuration</category>
+        
+        <category>java</category>
+        
+        <category>open-source</category>
+        
+        <category>parser</category>
+        
+        <category>spring-boot</category>
+        
+        <category>spring-boot-starter</category>
+        
+        <category>springboot</category>
+        
+        
+        <category>Bluemix</category>
+        
+        <category>Cloud</category>
+        
+        <category>Cloudant</category>
+        
+        <category>Java</category>
+        
+        <category>Spring</category>
+        
+        <category>Spring-boot</category>
+        
+      </item>
+    
+      <item>
+        <title>Bluemix Config Parser (Java)</title>
+        <description>&lt;p&gt;When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP_SERVICES environment variable. This is a handy util library for parsing Bluemix VCAP_SERVICES configurations JSON. Common configs classess are provided so it’ll even work with auto-completion on your favorite IDE. No more messy JSON config parsing!&lt;/p&gt;
+
+&lt;h2 id=&quot;usage-example&quot;&gt;Usage example&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;String password = BluemixConfigStore.getConfig().getCloudantNoSQLDB().getCredentials().getPassword();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;installing-with-maven&quot;&gt;Installing with Maven&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+  &amp;lt;groupId&amp;gt;com.clianz&amp;lt;/groupId&amp;gt;
+  &amp;lt;artifactId&amp;gt;bluemix-config-parser&amp;lt;/artifactId&amp;gt;
+  &amp;lt;version&amp;gt;0.0.5&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;configurations-supported&quot;&gt;Configurations supported&lt;/h2&gt;
+
+&lt;p&gt;Most of the common services on Bluemix are currently supported:&lt;/p&gt;
+
+&lt;p&gt;– Business rules&lt;/p&gt;
+
+&lt;p&gt;– Clear DB&lt;/p&gt;
+
+&lt;p&gt;– Cloud AMQP (RabbitMQ)&lt;/p&gt;
+
+&lt;p&gt;– Cloudant&lt;/p&gt;
+
+&lt;p&gt;– Concept Expansion&lt;/p&gt;
+
+&lt;p&gt;– Concept Insight&lt;/p&gt;
+
+&lt;p&gt;– Dash DB&lt;/p&gt;
+
+&lt;p&gt;– Data Cache&lt;/p&gt;
+
+&lt;p&gt;– Document Conversion&lt;/p&gt;
+
+&lt;p&gt;– Geospartial Analytics&lt;/p&gt;
+
+&lt;p&gt;– IMF Push&lt;/p&gt;
+
+&lt;p&gt;– Monitoring and Analytics&lt;/p&gt;
+
+&lt;p&gt;– MQ Light&lt;/p&gt;
+
+&lt;p&gt;– Relationship Extraction&lt;/p&gt;
+
+&lt;p&gt;– Rank and Retrieve&lt;/p&gt;
+
+&lt;p&gt;– Sesson Cache&lt;/p&gt;
+
+&lt;p&gt;– SQL DB (DB2)&lt;/p&gt;
+
+&lt;p&gt;– Trade-off Analytics&lt;/p&gt;
+
+&lt;p&gt;– Twitter Insights&lt;/p&gt;
+
+&lt;p&gt;– Weather Insights&lt;/p&gt;
+
+&lt;p&gt;– Workflow&lt;/p&gt;
+
+&lt;p&gt;– Workload Scheduler&lt;/p&gt;
+
+&lt;p&gt;– Twilio&lt;/p&gt;
+
+&lt;p&gt;– Elastic Search by Compose&lt;/p&gt;
+
+&lt;p&gt;– Mongo DB by Compose&lt;/p&gt;
+
+&lt;p&gt;– PostgreSQL by Compose&lt;/p&gt;
+
+&lt;p&gt;– Redis by Compose&lt;/p&gt;
+
+&lt;p&gt;Add more bindings to other services if you need, let’s do this once and for all for everyone.&lt;/p&gt;
+
+&lt;h2 id=&quot;local-development-deployment&quot;&gt;Local development deployment&lt;/h2&gt;
+
+&lt;p&gt;For local development, there are two common ways to setup environment:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Set VCAP_SERVICES JSON config for your dev space as an environment variable.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Or, start your app with a JVM variable pointing to a file containing your dev config, eg.&lt;/p&gt;
+
+    &lt;p&gt;-DVCAP_SERVICES_FILENAME=myDevConfig.json&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;contributing&quot;&gt;Contributing&lt;/h2&gt;
+
+&lt;p&gt;Pull requests are welcome.&lt;/p&gt;
+
+&lt;p&gt;Project page: &lt;a href=&quot;https://github.com/icha024/bluemix-config-parser/&quot;&gt;https://github.com/icha024/bluemix-config-parser/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Just fork this project, follow the pattern to add bindings/tests, then raise a pull request.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 15 Jan 2016 22:55:48 +0000</pubDate>
+        <link>http://yourdomain.com/2016/01/15/bluemix-config-parser-2/</link>
+        <guid isPermaLink="true">http://yourdomain.com/2016/01/15/bluemix-config-parser-2/</guid>
+        
+        <category>Bluemix</category>
+        
+        <category>cloud</category>
+        
+        <category>cloudfoundry</category>
+        
+        <category>configuration</category>
+        
+        <category>java</category>
+        
+        <category>json</category>
+        
+        <category>liberty</category>
+        
+        <category>paas</category>
+        
+        <category>parser</category>
+        
+        
+        <category>Bluemix</category>
+        
+        <category>Cloud</category>
+        
+        <category>Java</category>
         
       </item>
     

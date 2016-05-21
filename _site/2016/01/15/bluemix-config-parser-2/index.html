@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Welcome to Jekyll!</title>
-  <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
+  <title>Bluemix Config Parser (Java)</title>
+  <meta name="description" content="When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP_SERVICES environment variable. This is a handy util library ...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://yourdomain.com/jekyll/update/2016/01/27/welcome-to-jekyll.html">
+  <link rel="canonical" href="http://yourdomain.com/2016/01/15/bluemix-config-parser-2/">
   <link rel="alternate" type="application/rss+xml" title="Clianz: Tech and stuff from NZ" href="http://yourdomain.com/feed.xml">
 </head>
 
@@ -57,25 +57,111 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Welcome to Jekyll!</h1>
-    <p class="post-meta"><time datetime="2016-01-27T23:32:39+00:00" itemprop="datePublished">Jan 27, 2016</time></p>
+    <h1 class="post-title" itemprop="name headline">Bluemix Config Parser (Java)</h1>
+    <p class="post-meta"><time datetime="2016-01-15T22:55:48+00:00" itemprop="datePublished">Jan 15, 2016</time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Ian</span></span></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>You’ll find this post in your <code class="highlighter-rouge">_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code class="highlighter-rouge">jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+    <p>When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP_SERVICES environment variable. This is a handy util library for parsing Bluemix VCAP_SERVICES configurations JSON. Common configs classess are provided so it’ll even work with auto-completion on your favorite IDE. No more messy JSON config parsing!</p>
 
-<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+<h2 id="usage-example">Usage example</h2>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>String password = BluemixConfigStore.getConfig().getCloudantNoSQLDB().getCredentials().getPassword();
+</code></pre>
+</div>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+<h2 id="installing-with-maven">Installing with Maven</h2>
 
-<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
+  &lt;groupId&gt;com.clianz&lt;/groupId&gt;
+  &lt;artifactId&gt;bluemix-config-parser&lt;/artifactId&gt;
+  &lt;version&gt;0.0.5&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+</div>
 
+<h2 id="configurations-supported">Configurations supported</h2>
+
+<p>Most of the common services on Bluemix are currently supported:</p>
+
+<p>– Business rules</p>
+
+<p>– Clear DB</p>
+
+<p>– Cloud AMQP (RabbitMQ)</p>
+
+<p>– Cloudant</p>
+
+<p>– Concept Expansion</p>
+
+<p>– Concept Insight</p>
+
+<p>– Dash DB</p>
+
+<p>– Data Cache</p>
+
+<p>– Document Conversion</p>
+
+<p>– Geospartial Analytics</p>
+
+<p>– IMF Push</p>
+
+<p>– Monitoring and Analytics</p>
+
+<p>– MQ Light</p>
+
+<p>– Relationship Extraction</p>
+
+<p>– Rank and Retrieve</p>
+
+<p>– Sesson Cache</p>
+
+<p>– SQL DB (DB2)</p>
+
+<p>– Trade-off Analytics</p>
+
+<p>– Twitter Insights</p>
+
+<p>– Weather Insights</p>
+
+<p>– Workflow</p>
+
+<p>– Workload Scheduler</p>
+
+<p>– Twilio</p>
+
+<p>– Elastic Search by Compose</p>
+
+<p>– Mongo DB by Compose</p>
+
+<p>– PostgreSQL by Compose</p>
+
+<p>– Redis by Compose</p>
+
+<p>Add more bindings to other services if you need, let’s do this once and for all for everyone.</p>
+
+<h2 id="local-development-deployment">Local development deployment</h2>
+
+<p>For local development, there are two common ways to setup environment:</p>
+
+<ul>
+  <li>
+    <p>Set VCAP_SERVICES JSON config for your dev space as an environment variable.</p>
+  </li>
+  <li>
+    <p>Or, start your app with a JVM variable pointing to a file containing your dev config, eg.</p>
+
+    <p>-DVCAP_SERVICES_FILENAME=myDevConfig.json</p>
+  </li>
+</ul>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Pull requests are welcome.</p>
+
+<p>Project page: <a href="https://github.com/icha024/bluemix-config-parser/">https://github.com/icha024/bluemix-config-parser/</a></p>
+
+<p>Just fork this project, follow the pattern to add bindings/tests, then raise a pull request.</p>
 
   </div>
 
