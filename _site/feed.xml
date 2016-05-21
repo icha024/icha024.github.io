@@ -4,10 +4,10 @@
     <title>Clianz: Tech and stuff from NZ</title>
     <description>Thoughts exploration on software, hardware, and all things in technology.
 </description>
-    <link>/</link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 21 May 2016 19:52:06 +0100</pubDate>
-    <lastBuildDate>Sat, 21 May 2016 19:52:06 +0100</lastBuildDate>
+    <link>http://icha024.github.io/</link>
+    <atom:link href="http://icha024.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 21 May 2016 20:01:52 +0100</pubDate>
+    <lastBuildDate>Sat, 21 May 2016 20:01:52 +0100</lastBuildDate>
     <generator>Jekyll v3.1.5</generator>
     
       <item>
@@ -35,8 +35,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 30 Apr 2016 09:21:49 +0100</pubDate>
-        <link>/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</link>
-        <guid isPermaLink="true">/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</guid>
+        <link>http://icha024.github.io/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</link>
+        <guid isPermaLink="true">http://icha024.github.io/2016/04/30/things-you-should-know-before-choosing-bluemix-3-pros-and-cons/</guid>
         
         
         <category>Bluemix</category>
@@ -111,8 +111,8 @@
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 26 Apr 2016 09:46:21 +0100</pubDate>
-        <link>/2016/04/26/scala-magnet-pattern/</link>
-        <guid isPermaLink="true">/2016/04/26/scala-magnet-pattern/</guid>
+        <link>http://icha024.github.io/2016/04/26/scala-magnet-pattern/</link>
+        <guid isPermaLink="true">http://icha024.github.io/2016/04/26/scala-magnet-pattern/</guid>
         
         <category>Cake pattern</category>
         
@@ -258,8 +258,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;/div&gt;
 </description>
         <pubDate>Tue, 26 Apr 2016 09:46:20 +0100</pubDate>
-        <link>/2016/04/26/scala-cake-pattern/</link>
-        <guid isPermaLink="true">/2016/04/26/scala-cake-pattern/</guid>
+        <link>http://icha024.github.io/2016/04/26/scala-cake-pattern/</link>
+        <guid isPermaLink="true">http://icha024.github.io/2016/04/26/scala-cake-pattern/</guid>
         
         <category>Cake pattern</category>
         
@@ -345,8 +345,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;/div&gt;
 </description>
         <pubDate>Wed, 24 Feb 2016 14:20:52 +0000</pubDate>
-        <link>/2016/02/24/configuring-spring-mvc-async-threads/</link>
-        <guid isPermaLink="true">/2016/02/24/configuring-spring-mvc-async-threads/</guid>
+        <link>http://icha024.github.io/2016/02/24/configuring-spring-mvc-async-threads/</link>
+        <guid isPermaLink="true">http://icha024.github.io/2016/02/24/configuring-spring-mvc-async-threads/</guid>
         
         <category>async</category>
         
@@ -434,8 +434,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;p&gt;Bluemix’s VCAP_SERVICES environment variable containing a Cloudant service will always take precedence over any Spring configuration. This is useful – Local development will use the Spring configuration properties, and promoting it to Bluemix will automatically use the environment configured instance. If Spring’s configuration is desired, just remove the Cloudant service binding from your Bluemix app.&lt;/p&gt;
 </description>
         <pubDate>Mon, 25 Jan 2016 12:50:20 +0000</pubDate>
-        <link>/2016/01/25/cloudant-config/</link>
-        <guid isPermaLink="true">/2016/01/25/cloudant-config/</guid>
+        <link>http://icha024.github.io/2016/01/25/cloudant-config/</link>
+        <guid isPermaLink="true">http://icha024.github.io/2016/01/25/cloudant-config/</guid>
         
         <category>auto-configuration</category>
         
@@ -557,8 +557,8 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 &lt;p&gt;Just fork this project, follow the pattern to add bindings/tests, then raise a pull request.&lt;/p&gt;
 </description>
         <pubDate>Fri, 15 Jan 2016 22:55:48 +0000</pubDate>
-        <link>/2016/01/15/bluemix-config-parser-2/</link>
-        <guid isPermaLink="true">/2016/01/15/bluemix-config-parser-2/</guid>
+        <link>http://icha024.github.io/2016/01/15/bluemix-config-parser-2/</link>
+        <guid isPermaLink="true">http://icha024.github.io/2016/01/15/bluemix-config-parser-2/</guid>
         
         <category>Bluemix</category>
         

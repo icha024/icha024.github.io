@@ -4,7 +4,7 @@ title: "Clianz: Tech and stuff from NZ"
 email: opportunities@clianz.com
 description: > # this means to ignore newlines until "url:"
   Thoughts exploration on software, hardware, and all things in technology.
-#url: "http://vormwald.github.io" # the base hostname & protocol for your site
+url: "http://www.clianz.com"
 #baseurl: "/joon" # the subpath of your site, e.g. /blog/
 twitter_username: jekyllrb
 github_username:  jekyll
