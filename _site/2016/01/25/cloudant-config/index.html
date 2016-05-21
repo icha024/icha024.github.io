@@ -72,15 +72,15 @@
 
 <p>Just inject the client:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@Autowired
-CloudantClient cloudant
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nd">@Autowired</span>
+<span class="n">CloudantClient</span> <span class="n">cloudant</span>
 </code></pre>
 </div>
 
 <p>Then start using it:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Database db = cloudant.database("mydb", true);
-db.save(data);
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">Database</span> <span class="n">db</span> <span class="o">=</span> <span class="n">cloudant</span><span class="o">.</span><span class="na">database</span><span class="o">(</span><span class="s">"mydb"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="n">db</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
 </code></pre>
 </div>
 
@@ -88,29 +88,29 @@ db.save(data);
 
 <p>Or alternatively, you may inject a DB directly:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@Bean
-public Database mydb(CloudantClient cloudant) {
-	return cloudant.database("mydb", true);
-}
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="n">Database</span> <span class="nf">mydb</span><span class="p">(</span><span class="n">CloudantClient</span> <span class="n">cloudant</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="n">cloudant</span><span class="o">.</span><span class="na">database</span><span class="o">(</span><span class="s">"mydb"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span>
 </code></pre>
 </div>
 
 <p>Then start using it:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@Autowired
-Database mydb
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nd">@Autowired</span>
+<span class="n">Database</span> <span class="n">mydb</span>
 
-mydb.save(data);
+<span class="n">mydb</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">data</span><span class="o">);</span>
 </code></pre>
 </div>
 
 <h1 id="installing-with-maven">Installing with Maven</h1>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.clianz&lt;/groupId&gt;
-  &lt;artifactId&gt;cloudant-spring-boot-starter&lt;/artifactId&gt;
-  &lt;version&gt;0.9.0&lt;/version&gt;
-&lt;/dependency&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.clianz<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>cloudant-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.9.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </code></pre>
 </div>
 
@@ -120,20 +120,20 @@ mydb.save(data);
 
 <p>Configurations can be placed in the application.properties (or yml, or json) as usual. The username and password is mandatory.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>##### Mandatory configs #####
-cloudant.username=myUserName     #Username as assigned by Cloudant.
-cloudant.password=myPasswd       #Password as assigned by Cloudant.
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c">##### Mandatory configs #####
+</span><span class="py">cloudant.username</span><span class="p">=</span><span class="s">myUserName     #Username as assigned by Cloudant.</span>
+<span class="py">cloudant.password</span><span class="p">=</span><span class="s">myPasswd       #Password as assigned by Cloudant.</span>
 
-##### Optional configs #####
-cloudant.account=myAccountName   #Defaults to username if left blank.
-cloudant.url=...                 #Defaults to official server.
-cloudant.proxyURL=...            #URL to proxy server
-cloudant.proxyUser=myUserName    #Proxy username
-cloudant.proxyPassword=myPasswd  #Proxy password.
-cloudant.connectTimeout=300      #Connect timeout in seconds. Default to 300 seconds (5 minutes).
-cloudant.readTimeout=300         #Read timeout in seconds. Default to 300 seconds (5 minutes).
-cloudant.maxConnections=6        #Default to 6.
-cloudant.disableSSLAuthentication=false   #Defaults to false.
+<span class="c">##### Optional configs #####
+</span><span class="py">cloudant.account</span><span class="p">=</span><span class="s">myAccountName   #Defaults to username if left blank.</span>
+<span class="py">cloudant.url</span><span class="p">=</span><span class="s">...                 #Defaults to official server.</span>
+<span class="py">cloudant.proxyURL</span><span class="p">=</span><span class="s">...            #URL to proxy server</span>
+<span class="py">cloudant.proxyUser</span><span class="p">=</span><span class="s">myUserName    #Proxy username</span>
+<span class="py">cloudant.proxyPassword</span><span class="p">=</span><span class="s">myPasswd  #Proxy password.</span>
+<span class="py">cloudant.connectTimeout</span><span class="p">=</span><span class="s">300      #Connect timeout in seconds. Default to 300 seconds (5 minutes).</span>
+<span class="py">cloudant.readTimeout</span><span class="p">=</span><span class="s">300         #Read timeout in seconds. Default to 300 seconds (5 minutes).</span>
+<span class="py">cloudant.maxConnections</span><span class="p">=</span><span class="s">6        #Default to 6.</span>
+<span class="py">cloudant.disableSSLAuthentication</span><span class="p">=</span><span class="s">false   #Defaults to false.</span>
 </code></pre>
 </div>
 
@@ -159,7 +159,7 @@ cloudant.disableSSLAuthentication=false   #Defaults to false.
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>Clianz: Tech and stuff from NZ</li>
+          <li>Contact us</li>
           <li><a href="mailto:opportunities@clianz.com">opportunities@clianz.com</a></li>
         </ul>
       </div>

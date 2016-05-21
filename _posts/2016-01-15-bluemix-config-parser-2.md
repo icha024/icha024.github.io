@@ -31,73 +31,51 @@ When using Bluemix (CloudFoundry), services configuration are read by parsing th
 
 ## Usage example
 
-    String password = BluemixConfigStore.getConfig().getCloudantNoSQLDB().getCredentials().getPassword();
+```java
+BluemixConfigStore.getConfig().getCloudantNoSQLDB().getCredentials().getPassword();
+```
 
 ## Installing with Maven
 
-    <dependency>
-      <groupId>com.clianz</groupId>
-      <artifactId>bluemix-config-parser</artifactId>
-      <version>0.0.5</version>
-    </dependency>
+```xml
+<dependency>
+  <groupId>com.clianz</groupId>
+  <artifactId>bluemix-config-parser</artifactId>
+  <version>0.0.5</version>
+</dependency>
+```
 
 ## Configurations supported
 
 Most of the common services on Bluemix are currently supported:
-  
-– Business rules
-  
-– Clear DB
-  
-– Cloud AMQP (RabbitMQ)
-  
-– Cloudant
-  
-– Concept Expansion
-  
-– Concept Insight
-  
-– Dash DB
-  
-– Data Cache
-  
-– Document Conversion
-  
-– Geospartial Analytics
-  
-– IMF Push
-  
-– Monitoring and Analytics
-  
-– MQ Light
-  
-– Relationship Extraction
-  
-– Rank and Retrieve
-  
-– Sesson Cache
-  
-– SQL DB (DB2)
-  
-– Trade-off Analytics
-  
-– Twitter Insights
-  
-– Weather Insights
-  
-– Workflow
-  
-– Workload Scheduler
-  
-– Twilio
-  
-– Elastic Search by Compose
-  
-– Mongo DB by Compose
-  
-– PostgreSQL by Compose
-  
-– Redis by Compose
+
+- Business rules
+- Clear DB
+- Cloud AMQP (RabbitMQ)
+- Cloudant
+- Concept Expansion
+- Concept Insight
+- Dash DB
+- Data Cache
+- Document Conversion
+- Geospartial Analytics
+- IMF Push
+- Monitoring and Analytics
+- MQ Light
+- Relationship Extraction
+- Rank and Retrieve
+- Sesson Cache
+- SQL DB (DB2)
+- Trade-off Analytics
+- Twitter Insights
+- Weather Insights
+- Workflow
+- Workload Scheduler
+- Twilio
+- Elastic Search by Compose
+- Mongo DB by Compose
+- PostgreSQL by Compose
+- Redis by Compose
 
 Add more bindings to other services if you need, let’s do this once and for all for everyone.
 
@@ -109,7 +87,9 @@ For local development, there are two common ways to setup environment:
   
 * Or, start your app with a JVM variable pointing to a file containing your dev config, eg.
 
-    -DVCAP_SERVICES_FILENAME=myDevConfig.json
+```properties
+-DVCAP_SERVICES_FILENAME=myDevConfig.json
+```
 
 ## Contributing
 

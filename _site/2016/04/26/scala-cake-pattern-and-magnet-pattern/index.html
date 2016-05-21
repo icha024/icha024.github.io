@@ -104,7 +104,7 @@ CloudantDao –(implements)–&gt; GenericDAO interface
 
 <p>Here is a little demo program to show this DI concept.</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
 
 <span class="k">object</span> <span class="nc">MyCake</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
 
@@ -150,7 +150,7 @@ CloudantDao –(implements)–&gt; GenericDAO interface
 
 <p>In Java/Spring, DI is usually composition – but here we are doing DI via traits and the self type annotation is more like inheriting. Normally, in most example I saw, it’s named ‘this’ instead of ‘dao’ – I guess that make more sense if we are inheriting (injecting) multiple traits. See the updated example below multiple traits:</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
 
 <span class="k">object</span> <span class="nc">MyCake</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
 
@@ -209,7 +209,7 @@ CloudantDao –(implements)–&gt; GenericDAO interface
 
 <p>Notice how MyMagnet is declared – I did not provide any ‘String’ or ‘Int’ type constructor. Scala is smart enough to find the matching implicit method for ‘String’ and ‘Int’ in my object and still construct it properly.</p>
 
-<div class="language-scala highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">package</span> <span class="nn">com.example</span>
 
 <span class="k">object</span> <span class="nc">MyMagnetChecker</span> <span class="k">extends</span> <span class="nc">App</span> <span class="o">{</span>
   <span class="k">trait</span> <span class="nc">MyMagnet</span> <span class="o">{</span> <span class="c1">// should probably be sealed
@@ -268,7 +268,7 @@ CloudantDao –(implements)–&gt; GenericDAO interface
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>Clianz: Tech and stuff from NZ</li>
+          <li>Contact us</li>
           <li><a href="mailto:opportunities@clianz.com">opportunities@clianz.com</a></li>
         </ul>
       </div>

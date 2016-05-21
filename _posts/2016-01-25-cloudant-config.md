@@ -42,37 +42,47 @@ Spring Boot auto-configuration binding for Cloudant:
 
 Just inject the client:
 
-    @Autowired
-    CloudantClient cloudant
+```java
+@Autowired
+CloudantClient cloudant
+```
 
 Then start using it:
 
-    Database db = cloudant.database("mydb", true);
-    db.save(data);
+```java
+Database db = cloudant.database("mydb", true);
+db.save(data);
+```
 
 ## Injecting database directly
 
 Or alternatively, you may inject a DB directly:
 
-    @Bean
-    public Database mydb(CloudantClient cloudant) {
-    	return cloudant.database("mydb", true);
-    }
+```java
+@Bean
+public Database mydb(CloudantClient cloudant) {
+  return cloudant.database("mydb", true);
+}
+```
 
 Then start using it:
 
-    @Autowired
-    Database mydb
+```java
+@Autowired
+Database mydb
 
-    mydb.save(data);
+mydb.save(data);
+```
 
 # Installing with Maven
 
-    <dependency>
-      <groupId>com.clianz</groupId>
-      <artifactId>cloudant-spring-boot-starter</artifactId>
-      <version>0.9.0</version>
-    </dependency>
+```xml
+<dependency>
+  <groupId>com.clianz</groupId>
+  <artifactId>cloudant-spring-boot-starter</artifactId>
+  <version>0.9.0</version>
+</dependency>
+```
 
 # Configuration
 
@@ -80,20 +90,22 @@ Then start using it:
 
 Configurations can be placed in the application.properties (or yml, or json) as usual. The username and password is mandatory.
 
-    ##### Mandatory configs #####
-    cloudant.username=myUserName     #Username as assigned by Cloudant.
-    cloudant.password=myPasswd       #Password as assigned by Cloudant.
-    
-    ##### Optional configs #####
-    cloudant.account=myAccountName   #Defaults to username if left blank.
-    cloudant.url=...                 #Defaults to official server.
-    cloudant.proxyURL=...            #URL to proxy server
-    cloudant.proxyUser=myUserName    #Proxy username
-    cloudant.proxyPassword=myPasswd  #Proxy password.
-    cloudant.connectTimeout=300      #Connect timeout in seconds. Default to 300 seconds (5 minutes).
-    cloudant.readTimeout=300         #Read timeout in seconds. Default to 300 seconds (5 minutes).
-    cloudant.maxConnections=6        #Default to 6.
-    cloudant.disableSSLAuthentication=false   #Defaults to false.
+```properties
+##### Mandatory configs #####
+cloudant.username=myUserName     #Username as assigned by Cloudant.
+cloudant.password=myPasswd       #Password as assigned by Cloudant.
+
+##### Optional configs #####
+cloudant.account=myAccountName   #Defaults to username if left blank.
+cloudant.url=...                 #Defaults to official server.
+cloudant.proxyURL=...            #URL to proxy server
+cloudant.proxyUser=myUserName    #Proxy username
+cloudant.proxyPassword=myPasswd  #Proxy password.
+cloudant.connectTimeout=300      #Connect timeout in seconds. Default to 300 seconds (5 minutes).
+cloudant.readTimeout=300         #Read timeout in seconds. Default to 300 seconds (5 minutes).
+cloudant.maxConnections=6        #Default to 6.
+cloudant.disableSSLAuthentication=false   #Defaults to false.
+```
 
 ## Bluemix (CloudFoundry) Configuration
 

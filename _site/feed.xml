@@ -6,9 +6,9 @@
 </description>
     <link>http://yourdomain.com/</link>
     <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 21 May 2016 16:46:00 +0100</pubDate>
-    <lastBuildDate>Sat, 21 May 2016 16:46:00 +0100</lastBuildDate>
-    <generator>Jekyll v3.1.0</generator>
+    <pubDate>Sat, 21 May 2016 18:12:08 +0100</pubDate>
+    <lastBuildDate>Sat, 21 May 2016 18:12:08 +0100</lastBuildDate>
+    <generator>Jekyll v3.1.5</generator>
     
       <item>
         <title>Things You Should Know Before Choosing Bluemix</title>
@@ -29,7 +29,7 @@
     &lt;p&gt;&lt;strong&gt;Support&lt;/strong&gt; – Even on the free tier, you can still get reasonable support and raise tickets. The respond time is not the fastest, but usually they do respond within a couple of days. Responding to tickets within a couple of days is better than not responding, but it’s sometimes not good enough if you are paying for usage above the free tier.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;SLA&lt;/strong&gt; – No where on their site could I find any SLA promises (as of April 2016). They have been running for over a year now, and there are noticeable outages, usually a couple of times a month. Unless you run a hobby project or small enough business to not care, this might a real problem. I do not think this would affect their large enterprise client though who probably have enough negotiation power to get an SLA in place together with a private/dedicated instance. Saying that, I still use it for my random pet projects and NodeRed on Bluemix is simply awesome!&amp;lt;/ul&amp;gt;&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;SLA&lt;/strong&gt; – No where on their site could I find any SLA promises (as of April 2016). They have been running for over a year now, and there are noticeable outages, usually a couple of times a month. Unless you run a hobby project or small enough business to not care, this might a real problem. I do not think this would affect their large enterprise client though who probably have enough negotiation power to get an SLA in place together with a private/dedicated instance. Saying that, I still use it for my random pet projects and NodeRed on Bluemix is simply awesome!&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -88,7 +88,7 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 
 &lt;p&gt;Here is a little demo program to show this DI concept.&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyCake&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
@@ -134,7 +134,7 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 
 &lt;p&gt;In Java/Spring, DI is usually composition – but here we are doing DI via traits and the self type annotation is more like inheriting. Normally, in most example I saw, it’s named ‘this’ instead of ‘dao’ – I guess that make more sense if we are inheriting (injecting) multiple traits. See the updated example below multiple traits:&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyCake&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
@@ -193,7 +193,7 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 
 &lt;p&gt;Notice how MyMagnet is declared – I did not provide any ‘String’ or ‘Int’ type constructor. Scala is smart enough to find the matching implicit method for ‘String’ and ‘Int’ in my object and still construct it properly.&lt;/p&gt;
 
-&lt;div class=&quot;language-scala highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.example&lt;/span&gt;
 
 &lt;span class=&quot;k&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnetChecker&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;App&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MyMagnet&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// should probably be sealed
@@ -259,12 +259,12 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
 
 &lt;p&gt;Here is an example of it (Spring Boot + Java 8), this just echoes the request in the response:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@RequestMapping(value = &quot;/echo&quot;)
-public Callable&amp;lt;ResponseEntity&amp;lt;String&amp;gt;&amp;gt; echo(@RequestParam(value = &quot;message&quot;, required = true) String message) {
-	return () -&amp;gt; {
-		return new ResponseEntity&amp;lt;&amp;gt;(message, HttpStatus.OK);
-	};
-}
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@RequestMapping&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/echo&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;echo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;@RequestParam&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;message&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;required&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;OK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -274,42 +274,42 @@ public Callable&amp;lt;ResponseEntity&amp;lt;String&amp;gt;&amp;gt; echo(@Reques
 
 &lt;p&gt;One of the things to watch out for is that the default thread executor should be replaced for production. However, I could not find any good example of this easily. After digging around the code for a while, here is an example of how to configure the async task executor.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/**
- * Configs for MVC/REST services with &#39;Callable&#39; return types - they spawn background threads, and this configures it.
- */
-@Configuration
-@ConfigurationProperties(prefix = &quot;web.executor&quot;)
-public class CallableConfig {
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
+	* Configs for MVC/REST services with &#39;Callable&#39; return types - they spawn background threads, and this configures it.
+	*/&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@Configuration&lt;/span&gt;
+&lt;span class=&quot;nd&quot;&gt;@ConfigurationProperties&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prefix&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;web.executor&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;CallableConfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
 
-	public static final int DEFAULT_POOL_SIZE = 2;
-	public static final int DEFAULT_QUEUE_SIZE = 2;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DEFAULT_POOL_SIZE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DEFAULT_QUEUE_SIZE&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-	private int minPoolSize = DEFAULT_POOL_SIZE;
-	private int maxPoolSize = DEFAULT_POOL_SIZE;
-	private int maxQueueSize = DEFAULT_QUEUE_SIZE;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;minPoolSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DEFAULT_POOL_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxPoolSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DEFAULT_POOL_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;maxQueueSize&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DEFAULT_QUEUE_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
-	@Bean
-	public AsyncTaskExecutor asyncTaskExecutor() {
-		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-		executor.setCorePoolSize(DEFAULT_POOL_SIZE);
-		executor.setMaxPoolSize(DEFAULT_POOL_SIZE);
-		executor.setQueueCapacity(DEFAULT_QUEUE_SIZE);
-		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
-		executor.setWaitForTasksToCompleteOnShutdown(true);
-		return executor;
-	}
+	&lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;AsyncTaskExecutor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;asyncTaskExecutor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ThreadPoolTaskExecutor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;executor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ThreadPoolTaskExecutor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setCorePoolSize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DEFAULT_POOL_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setMaxPoolSize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DEFAULT_POOL_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setQueueCapacity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DEFAULT_QUEUE_SIZE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setRejectedExecutionHandler&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ThreadPoolExecutor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;AbortPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+		&lt;span class=&quot;n&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setWaitForTasksToCompleteOnShutdown&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;executor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 
-	@Bean
-	public WebMvcConfigurerAdapter webMvcConfigurerAdapter(AsyncTaskExecutor asyncTaskExecutor) {
-		return new WebMvcConfigurerAdapter() {
-			@Override
-			public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
-				configurer.setTaskExecutor(asyncTaskExecutor);
-				super.configureAsyncSupport(configurer);
-			}
-		};
-	}
-}
+	&lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebMvcConfigurerAdapter&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;webMvcConfigurerAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AsyncTaskExecutor&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;asyncTaskExecutor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebMvcConfigurerAdapter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+			&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configureAsyncSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;AsyncSupportConfigurer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configurer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+				&lt;span class=&quot;n&quot;&gt;configurer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setTaskExecutor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;asyncTaskExecutor&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+				&lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;configureAsyncSupport&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;configurer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;    
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -317,9 +317,9 @@ public class CallableConfig {
 
 &lt;p&gt;The @ConfigurationProperties tag exposes the configuration if you are using Spring Boot. This handy option let you configure it in your application.properties to override the defaults, for example:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;web.executor.minPoolSize=10
-web.executor.maxPoolSize=10
-web.executor.maxQueueSize=20
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;py&quot;&gt;web.executor.minPoolSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;web.executor.maxPoolSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;10&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;web.executor.maxQueueSize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;20&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </description>
@@ -360,15 +360,15 @@ web.executor.maxQueueSize=20
 
 &lt;p&gt;Just inject the client:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Autowired
-CloudantClient cloudant
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;CloudantClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cloudant&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Then start using it:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Database db = cloudant.database(&quot;mydb&quot;, true);
-db.save(data);
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;Database&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;db&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cloudant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mydb&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;db&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -376,29 +376,29 @@ db.save(data);
 
 &lt;p&gt;Or alternatively, you may inject a DB directly:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Bean
-public Database mydb(CloudantClient cloudant) {
-	return cloudant.database(&quot;mydb&quot;, true);
-}
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Bean&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Database&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;mydb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CloudantClient&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cloudant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cloudant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;mydb&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Then start using it:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@Autowired
-Database mydb
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Database&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mydb&lt;/span&gt;
 
-mydb.save(data);
+&lt;span class=&quot;n&quot;&gt;mydb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;save&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h1 id=&quot;installing-with-maven&quot;&gt;Installing with Maven&lt;/h1&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
-  &amp;lt;groupId&amp;gt;com.clianz&amp;lt;/groupId&amp;gt;
-  &amp;lt;artifactId&amp;gt;cloudant-spring-boot-starter&amp;lt;/artifactId&amp;gt;
-  &amp;lt;version&amp;gt;0.9.0&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.clianz&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;cloudant-spring-boot-starter&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.9.0&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -408,20 +408,20 @@ mydb.save(data);
 
 &lt;p&gt;Configurations can be placed in the application.properties (or yml, or json) as usual. The username and password is mandatory.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;##### Mandatory configs #####
-cloudant.username=myUserName     #Username as assigned by Cloudant.
-cloudant.password=myPasswd       #Password as assigned by Cloudant.
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;##### Mandatory configs #####
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;cloudant.username&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;myUserName     #Username as assigned by Cloudant.&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;myPasswd       #Password as assigned by Cloudant.&lt;/span&gt;
 
-##### Optional configs #####
-cloudant.account=myAccountName   #Defaults to username if left blank.
-cloudant.url=...                 #Defaults to official server.
-cloudant.proxyURL=...            #URL to proxy server
-cloudant.proxyUser=myUserName    #Proxy username
-cloudant.proxyPassword=myPasswd  #Proxy password.
-cloudant.connectTimeout=300      #Connect timeout in seconds. Default to 300 seconds (5 minutes).
-cloudant.readTimeout=300         #Read timeout in seconds. Default to 300 seconds (5 minutes).
-cloudant.maxConnections=6        #Default to 6.
-cloudant.disableSSLAuthentication=false   #Defaults to false.
+&lt;span class=&quot;c&quot;&gt;##### Optional configs #####
+&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;cloudant.account&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;myAccountName   #Defaults to username if left blank.&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;...                 #Defaults to official server.&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.proxyURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;...            #URL to proxy server&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.proxyUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;myUserName    #Proxy username&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.proxyPassword&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;myPasswd  #Proxy password.&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.connectTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;300      #Connect timeout in seconds. Default to 300 seconds (5 minutes).&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.readTimeout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;300         #Read timeout in seconds. Default to 300 seconds (5 minutes).&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.maxConnections&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;6        #Default to 6.&lt;/span&gt;
+&lt;span class=&quot;py&quot;&gt;cloudant.disableSSLAuthentication&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;false   #Defaults to false.&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -478,17 +478,17 @@ cloudant.disableSSLAuthentication=false   #Defaults to false.
 
 &lt;h2 id=&quot;usage-example&quot;&gt;Usage example&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;String password = BluemixConfigStore.getConfig().getCloudantNoSQLDB().getCredentials().getPassword();
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;BluemixConfigStore&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getCloudantNoSQLDB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getCredentials&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getPassword&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;h2 id=&quot;installing-with-maven&quot;&gt;Installing with Maven&lt;/h2&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
-  &amp;lt;groupId&amp;gt;com.clianz&amp;lt;/groupId&amp;gt;
-  &amp;lt;artifactId&amp;gt;bluemix-config-parser&amp;lt;/artifactId&amp;gt;
-  &amp;lt;version&amp;gt;0.0.5&amp;lt;/version&amp;gt;
-&amp;lt;/dependency&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.clianz&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;bluemix-config-parser&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;0.0.5&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -496,59 +496,35 @@ cloudant.disableSSLAuthentication=false   #Defaults to false.
 
 &lt;p&gt;Most of the common services on Bluemix are currently supported:&lt;/p&gt;
 
-&lt;p&gt;– Business rules&lt;/p&gt;
-
-&lt;p&gt;– Clear DB&lt;/p&gt;
-
-&lt;p&gt;– Cloud AMQP (RabbitMQ)&lt;/p&gt;
-
-&lt;p&gt;– Cloudant&lt;/p&gt;
-
-&lt;p&gt;– Concept Expansion&lt;/p&gt;
-
-&lt;p&gt;– Concept Insight&lt;/p&gt;
-
-&lt;p&gt;– Dash DB&lt;/p&gt;
-
-&lt;p&gt;– Data Cache&lt;/p&gt;
-
-&lt;p&gt;– Document Conversion&lt;/p&gt;
-
-&lt;p&gt;– Geospartial Analytics&lt;/p&gt;
-
-&lt;p&gt;– IMF Push&lt;/p&gt;
-
-&lt;p&gt;– Monitoring and Analytics&lt;/p&gt;
-
-&lt;p&gt;– MQ Light&lt;/p&gt;
-
-&lt;p&gt;– Relationship Extraction&lt;/p&gt;
-
-&lt;p&gt;– Rank and Retrieve&lt;/p&gt;
-
-&lt;p&gt;– Sesson Cache&lt;/p&gt;
-
-&lt;p&gt;– SQL DB (DB2)&lt;/p&gt;
-
-&lt;p&gt;– Trade-off Analytics&lt;/p&gt;
-
-&lt;p&gt;– Twitter Insights&lt;/p&gt;
-
-&lt;p&gt;– Weather Insights&lt;/p&gt;
-
-&lt;p&gt;– Workflow&lt;/p&gt;
-
-&lt;p&gt;– Workload Scheduler&lt;/p&gt;
-
-&lt;p&gt;– Twilio&lt;/p&gt;
-
-&lt;p&gt;– Elastic Search by Compose&lt;/p&gt;
-
-&lt;p&gt;– Mongo DB by Compose&lt;/p&gt;
-
-&lt;p&gt;– PostgreSQL by Compose&lt;/p&gt;
-
-&lt;p&gt;– Redis by Compose&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Business rules&lt;/li&gt;
+  &lt;li&gt;Clear DB&lt;/li&gt;
+  &lt;li&gt;Cloud AMQP (RabbitMQ)&lt;/li&gt;
+  &lt;li&gt;Cloudant&lt;/li&gt;
+  &lt;li&gt;Concept Expansion&lt;/li&gt;
+  &lt;li&gt;Concept Insight&lt;/li&gt;
+  &lt;li&gt;Dash DB&lt;/li&gt;
+  &lt;li&gt;Data Cache&lt;/li&gt;
+  &lt;li&gt;Document Conversion&lt;/li&gt;
+  &lt;li&gt;Geospartial Analytics&lt;/li&gt;
+  &lt;li&gt;IMF Push&lt;/li&gt;
+  &lt;li&gt;Monitoring and Analytics&lt;/li&gt;
+  &lt;li&gt;MQ Light&lt;/li&gt;
+  &lt;li&gt;Relationship Extraction&lt;/li&gt;
+  &lt;li&gt;Rank and Retrieve&lt;/li&gt;
+  &lt;li&gt;Sesson Cache&lt;/li&gt;
+  &lt;li&gt;SQL DB (DB2)&lt;/li&gt;
+  &lt;li&gt;Trade-off Analytics&lt;/li&gt;
+  &lt;li&gt;Twitter Insights&lt;/li&gt;
+  &lt;li&gt;Weather Insights&lt;/li&gt;
+  &lt;li&gt;Workflow&lt;/li&gt;
+  &lt;li&gt;Workload Scheduler&lt;/li&gt;
+  &lt;li&gt;Twilio&lt;/li&gt;
+  &lt;li&gt;Elastic Search by Compose&lt;/li&gt;
+  &lt;li&gt;Mongo DB by Compose&lt;/li&gt;
+  &lt;li&gt;PostgreSQL by Compose&lt;/li&gt;
+  &lt;li&gt;Redis by Compose&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Add more bindings to other services if you need, let’s do this once and for all for everyone.&lt;/p&gt;
 
@@ -562,10 +538,12 @@ cloudant.disableSSLAuthentication=false   #Defaults to false.
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Or, start your app with a JVM variable pointing to a file containing your dev config, eg.&lt;/p&gt;
-
-    &lt;p&gt;-DVCAP_SERVICES_FILENAME=myDevConfig.json&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;DVCAP_SERVICES_FILENAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;myDevConfig.json&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h2 id=&quot;contributing&quot;&gt;Contributing&lt;/h2&gt;
 

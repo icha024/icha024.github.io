@@ -68,12 +68,12 @@
 
 <p>Here is an example of it (Spring Boot + Java 8), this just echoes the request in the response:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>@RequestMapping(value = "/echo")
-public Callable&lt;ResponseEntity&lt;String&gt;&gt; echo(@RequestParam(value = "message", required = true) String message) {
-	return () -&gt; {
-		return new ResponseEntity&lt;&gt;(message, HttpStatus.OK);
-	};
-}
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/echo"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="n">Callable</span><span class="o">&lt;</span><span class="n">ResponseEntity</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;&gt;</span> <span class="n">echo</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"message"</span><span class="o">,</span> <span class="n">required</span> <span class="o">=</span> <span class="kc">true</span><span class="o">)</span> <span class="n">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+	<span class="k">return</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="n">ResponseEntity</span><span class="o">&lt;&gt;(</span><span class="n">message</span><span class="o">,</span> <span class="n">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">);</span>
+	<span class="o">};</span>
+<span class="o">}</span>
 </code></pre>
 </div>
 
@@ -83,42 +83,42 @@ public Callable&lt;ResponseEntity&lt;String&gt;&gt; echo(@RequestParam(value = "
 
 <p>One of the things to watch out for is that the default thread executor should be replaced for production. However, I could not find any good example of this easily. After digging around the code for a while, here is an example of how to configure the async task executor.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>/**
- * Configs for MVC/REST services with 'Callable' return types - they spawn background threads, and this configures it.
- */
-@Configuration
-@ConfigurationProperties(prefix = "web.executor")
-public class CallableConfig {
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="cm">/**
+	* Configs for MVC/REST services with 'Callable' return types - they spawn background threads, and this configures it.
+	*/</span>
+<span class="nd">@Configuration</span>
+<span class="nd">@ConfigurationProperties</span><span class="o">(</span><span class="n">prefix</span> <span class="o">=</span> <span class="s">"web.executor"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CallableConfig</span> <span class="o">{</span>
 
-	public static final int DEFAULT_POOL_SIZE = 2;
-	public static final int DEFAULT_QUEUE_SIZE = 2;
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_POOL_SIZE</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="n">DEFAULT_QUEUE_SIZE</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
 
-	private int minPoolSize = DEFAULT_POOL_SIZE;
-	private int maxPoolSize = DEFAULT_POOL_SIZE;
-	private int maxQueueSize = DEFAULT_QUEUE_SIZE;
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">minPoolSize</span> <span class="o">=</span> <span class="n">DEFAULT_POOL_SIZE</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">maxPoolSize</span> <span class="o">=</span> <span class="n">DEFAULT_POOL_SIZE</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kt">int</span> <span class="n">maxQueueSize</span> <span class="o">=</span> <span class="n">DEFAULT_QUEUE_SIZE</span><span class="o">;</span>
 
-	@Bean
-	public AsyncTaskExecutor asyncTaskExecutor() {
-		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-		executor.setCorePoolSize(DEFAULT_POOL_SIZE);
-		executor.setMaxPoolSize(DEFAULT_POOL_SIZE);
-		executor.setQueueCapacity(DEFAULT_QUEUE_SIZE);
-		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
-		executor.setWaitForTasksToCompleteOnShutdown(true);
-		return executor;
-	}
+	<span class="nd">@Bean</span>
+	<span class="kd">public</span> <span class="n">AsyncTaskExecutor</span> <span class="n">asyncTaskExecutor</span><span class="o">()</span> <span class="o">{</span>
+		<span class="kd">final</span> <span class="n">ThreadPoolTaskExecutor</span> <span class="n">executor</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadPoolTaskExecutor</span><span class="o">();</span>
+		<span class="n">executor</span><span class="o">.</span><span class="na">setCorePoolSize</span><span class="o">(</span><span class="n">DEFAULT_POOL_SIZE</span><span class="o">);</span>
+		<span class="n">executor</span><span class="o">.</span><span class="na">setMaxPoolSize</span><span class="o">(</span><span class="n">DEFAULT_POOL_SIZE</span><span class="o">);</span>
+		<span class="n">executor</span><span class="o">.</span><span class="na">setQueueCapacity</span><span class="o">(</span><span class="n">DEFAULT_QUEUE_SIZE</span><span class="o">);</span>
+		<span class="n">executor</span><span class="o">.</span><span class="na">setRejectedExecutionHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">ThreadPoolExecutor</span><span class="o">.</span><span class="na">AbortPolicy</span><span class="o">());</span>
+		<span class="n">executor</span><span class="o">.</span><span class="na">setWaitForTasksToCompleteOnShutdown</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+		<span class="k">return</span> <span class="n">executor</span><span class="o">;</span>
+	<span class="o">}</span>
 
-	@Bean
-	public WebMvcConfigurerAdapter webMvcConfigurerAdapter(AsyncTaskExecutor asyncTaskExecutor) {
-		return new WebMvcConfigurerAdapter() {
-			@Override
-			public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
-				configurer.setTaskExecutor(asyncTaskExecutor);
-				super.configureAsyncSupport(configurer);
-			}
-		};
-	}
-}
+	<span class="nd">@Bean</span>
+	<span class="kd">public</span> <span class="n">WebMvcConfigurerAdapter</span> <span class="n">webMvcConfigurerAdapter</span><span class="o">(</span><span class="n">AsyncTaskExecutor</span> <span class="n">asyncTaskExecutor</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="n">WebMvcConfigurerAdapter</span><span class="o">()</span> <span class="o">{</span>
+			<span class="nd">@Override</span>
+			<span class="kd">public</span> <span class="kt">void</span> <span class="n">configureAsyncSupport</span><span class="o">(</span><span class="n">AsyncSupportConfigurer</span> <span class="n">configurer</span><span class="o">)</span> <span class="o">{</span>
+				<span class="n">configurer</span><span class="o">.</span><span class="na">setTaskExecutor</span><span class="o">(</span><span class="n">asyncTaskExecutor</span><span class="o">);</span>
+				<span class="kd">super</span><span class="o">.</span><span class="na">configureAsyncSupport</span><span class="o">(</span><span class="n">configurer</span><span class="o">);</span>
+			<span class="o">}</span>
+		<span class="o">};</span>
+	<span class="o">}</span>
+<span class="o">}</span>    
 </code></pre>
 </div>
 
@@ -126,9 +126,9 @@ public class CallableConfig {
 
 <p>The @ConfigurationProperties tag exposes the configuration if you are using Spring Boot. This handy option let you configure it in your application.properties to override the defaults, for example:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>web.executor.minPoolSize=10
-web.executor.maxPoolSize=10
-web.executor.maxQueueSize=20
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="py">web.executor.minPoolSize</span><span class="p">=</span><span class="s">10</span>
+<span class="py">web.executor.maxPoolSize</span><span class="p">=</span><span class="s">10</span>
+<span class="py">web.executor.maxQueueSize</span><span class="p">=</span><span class="s">20</span>
 </code></pre>
 </div>
 
@@ -148,7 +148,7 @@ web.executor.maxQueueSize=20
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>Clianz: Tech and stuff from NZ</li>
+          <li>Contact us</li>
           <li><a href="mailto:opportunities@clianz.com">opportunities@clianz.com</a></li>
         </ul>
       </div>

@@ -30,13 +30,14 @@ The great thing I love about Spring web framework is the abundance of features a
 
 Here is an example of it (Spring Boot + Java 8), this just echoes the request in the response:
 
-    @RequestMapping(value = "/echo")
-    public Callable<ResponseEntity<String>> echo(@RequestParam(value = "message", required = true) String message) {
-    	return () -> {
-    		return new ResponseEntity<>(message, HttpStatus.OK);
-    	};
-    }
-    
+```java
+@RequestMapping(value = "/echo")
+public Callable<ResponseEntity<String>> echo(@RequestParam(value = "message", required = true) String message) {
+	return () -> {
+		return new ResponseEntity<>(message, HttpStatus.OK);
+	};
+}
+```
 
 Now if you deploy this locally, then <http://localhost:8080/echo?message=auckland> will echo your request in the response – all done asynchronously on the server.
 
@@ -44,48 +45,51 @@ Now if you deploy this locally, then <http://localhost:8080/echo?message=aucklan
 
 One of the things to watch out for is that the default thread executor should be replaced for production. However, I could not find any good example of this easily. After digging around the code for a while, here is an example of how to configure the async task executor.
 
-    /**
-     * Configs for MVC/REST services with 'Callable' return types - they spawn background threads, and this configures it.
-     */
-    @Configuration
-    @ConfigurationProperties(prefix = "web.executor")
-    public class CallableConfig {
-    
-    	public static final int DEFAULT_POOL_SIZE = 2;
-    	public static final int DEFAULT_QUEUE_SIZE = 2;
-    
-    	private int minPoolSize = DEFAULT_POOL_SIZE;
-    	private int maxPoolSize = DEFAULT_POOL_SIZE;
-    	private int maxQueueSize = DEFAULT_QUEUE_SIZE;
-    
-    	@Bean
-    	public AsyncTaskExecutor asyncTaskExecutor() {
-    		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
-    		executor.setCorePoolSize(DEFAULT_POOL_SIZE);
-    		executor.setMaxPoolSize(DEFAULT_POOL_SIZE);
-    		executor.setQueueCapacity(DEFAULT_QUEUE_SIZE);
-    		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
-    		executor.setWaitForTasksToCompleteOnShutdown(true);
-    		return executor;
-    	}
-    
-    	@Bean
-    	public WebMvcConfigurerAdapter webMvcConfigurerAdapter(AsyncTaskExecutor asyncTaskExecutor) {
-    		return new WebMvcConfigurerAdapter() {
-    			@Override
-    			public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
-    				configurer.setTaskExecutor(asyncTaskExecutor);
-    				super.configureAsyncSupport(configurer);
-    			}
-    		};
-    	}
-    }
-    
+```java
+/**
+	* Configs for MVC/REST services with 'Callable' return types - they spawn background threads, and this configures it.
+	*/
+@Configuration
+@ConfigurationProperties(prefix = "web.executor")
+public class CallableConfig {
+
+	public static final int DEFAULT_POOL_SIZE = 2;
+	public static final int DEFAULT_QUEUE_SIZE = 2;
+
+	private int minPoolSize = DEFAULT_POOL_SIZE;
+	private int maxPoolSize = DEFAULT_POOL_SIZE;
+	private int maxQueueSize = DEFAULT_QUEUE_SIZE;
+
+	@Bean
+	public AsyncTaskExecutor asyncTaskExecutor() {
+		final ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+		executor.setCorePoolSize(DEFAULT_POOL_SIZE);
+		executor.setMaxPoolSize(DEFAULT_POOL_SIZE);
+		executor.setQueueCapacity(DEFAULT_QUEUE_SIZE);
+		executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
+		executor.setWaitForTasksToCompleteOnShutdown(true);
+		return executor;
+	}
+
+	@Bean
+	public WebMvcConfigurerAdapter webMvcConfigurerAdapter(AsyncTaskExecutor asyncTaskExecutor) {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void configureAsyncSupport(AsyncSupportConfigurer configurer) {
+				configurer.setTaskExecutor(asyncTaskExecutor);
+				super.configureAsyncSupport(configurer);
+			}
+		};
+	}
+}    
+```
 
 ### Exposing Configurations
 
 The @ConfigurationProperties tag exposes the configuration if you are using Spring Boot. This handy option let you configure it in your application.properties to override the defaults, for example:
 
-    web.executor.minPoolSize=10
-    web.executor.maxPoolSize=10
-    web.executor.maxQueueSize=20
+```properties
+web.executor.minPoolSize=10
+web.executor.maxPoolSize=10
+web.executor.maxQueueSize=20
+```

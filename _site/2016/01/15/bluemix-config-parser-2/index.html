@@ -66,17 +66,17 @@
 
 <h2 id="usage-example">Usage example</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>String password = BluemixConfigStore.getConfig().getCloudantNoSQLDB().getCredentials().getPassword();
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">BluemixConfigStore</span><span class="o">.</span><span class="na">getConfig</span><span class="o">().</span><span class="na">getCloudantNoSQLDB</span><span class="o">().</span><span class="na">getCredentials</span><span class="o">().</span><span class="na">getPassword</span><span class="o">();</span>
 </code></pre>
 </div>
 
 <h2 id="installing-with-maven">Installing with Maven</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.clianz&lt;/groupId&gt;
-  &lt;artifactId&gt;bluemix-config-parser&lt;/artifactId&gt;
-  &lt;version&gt;0.0.5&lt;/version&gt;
-&lt;/dependency&gt;
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+  <span class="nt">&lt;groupId&gt;</span>com.clianz<span class="nt">&lt;/groupId&gt;</span>
+  <span class="nt">&lt;artifactId&gt;</span>bluemix-config-parser<span class="nt">&lt;/artifactId&gt;</span>
+  <span class="nt">&lt;version&gt;</span>0.0.5<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
 </code></pre>
 </div>
 
@@ -84,59 +84,35 @@
 
 <p>Most of the common services on Bluemix are currently supported:</p>
 
-<p>– Business rules</p>
-
-<p>– Clear DB</p>
-
-<p>– Cloud AMQP (RabbitMQ)</p>
-
-<p>– Cloudant</p>
-
-<p>– Concept Expansion</p>
-
-<p>– Concept Insight</p>
-
-<p>– Dash DB</p>
-
-<p>– Data Cache</p>
-
-<p>– Document Conversion</p>
-
-<p>– Geospartial Analytics</p>
-
-<p>– IMF Push</p>
-
-<p>– Monitoring and Analytics</p>
-
-<p>– MQ Light</p>
-
-<p>– Relationship Extraction</p>
-
-<p>– Rank and Retrieve</p>
-
-<p>– Sesson Cache</p>
-
-<p>– SQL DB (DB2)</p>
-
-<p>– Trade-off Analytics</p>
-
-<p>– Twitter Insights</p>
-
-<p>– Weather Insights</p>
-
-<p>– Workflow</p>
-
-<p>– Workload Scheduler</p>
-
-<p>– Twilio</p>
-
-<p>– Elastic Search by Compose</p>
-
-<p>– Mongo DB by Compose</p>
-
-<p>– PostgreSQL by Compose</p>
-
-<p>– Redis by Compose</p>
+<ul>
+  <li>Business rules</li>
+  <li>Clear DB</li>
+  <li>Cloud AMQP (RabbitMQ)</li>
+  <li>Cloudant</li>
+  <li>Concept Expansion</li>
+  <li>Concept Insight</li>
+  <li>Dash DB</li>
+  <li>Data Cache</li>
+  <li>Document Conversion</li>
+  <li>Geospartial Analytics</li>
+  <li>IMF Push</li>
+  <li>Monitoring and Analytics</li>
+  <li>MQ Light</li>
+  <li>Relationship Extraction</li>
+  <li>Rank and Retrieve</li>
+  <li>Sesson Cache</li>
+  <li>SQL DB (DB2)</li>
+  <li>Trade-off Analytics</li>
+  <li>Twitter Insights</li>
+  <li>Weather Insights</li>
+  <li>Workflow</li>
+  <li>Workload Scheduler</li>
+  <li>Twilio</li>
+  <li>Elastic Search by Compose</li>
+  <li>Mongo DB by Compose</li>
+  <li>PostgreSQL by Compose</li>
+  <li>Redis by Compose</li>
+</ul>
 
 <p>Add more bindings to other services if you need, let’s do this once and for all for everyone.</p>
 
@@ -150,10 +126,12 @@
   </li>
   <li>
     <p>Or, start your app with a JVM variable pointing to a file containing your dev config, eg.</p>
-
-    <p>-DVCAP_SERVICES_FILENAME=myDevConfig.json</p>
   </li>
 </ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="err">-</span><span class="py">DVCAP_SERVICES_FILENAME</span><span class="p">=</span><span class="s">myDevConfig.json</span>
+</code></pre>
+</div>
 
 <h2 id="contributing">Contributing</h2>
 
@@ -179,7 +157,7 @@
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>Clianz: Tech and stuff from NZ</li>
+          <li>Contact us</li>
           <li><a href="mailto:opportunities@clianz.com">opportunities@clianz.com</a></li>
         </ul>
       </div>
