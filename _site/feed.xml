@@ -5,13 +5,15 @@
     <description>Tech and Stuff from NZ</description>
     <link>http://www.clianz.com/</link>
     <atom:link href="http://www.clianz.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 May 2016 13:30:27 +0100</pubDate>
-    <lastBuildDate>Sun, 22 May 2016 13:30:27 +0100</lastBuildDate>
+    <pubDate>Sun, 22 May 2016 14:03:56 +0100</pubDate>
+    <lastBuildDate>Sun, 22 May 2016 14:03:56 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>Things You Should Know Before Choosing Bluemix</title>
-        <description>&lt;p&gt;Bluemix is a cloud service provider that let will host your web app for you on the cloud. Similar to Amazon’s AWS, Microsoft’s Azure, Google’s Cloud Engine, Saleforce’s Heroku, Redhat’s Openshift, etc.&lt;br /&gt;
+        <description>&lt;h2 id=&quot;about-bluemix&quot;&gt;About Bluemix.&lt;/h2&gt;
+
+&lt;p&gt;Bluemix is a cloud service provider that let will host your web app for you on the cloud. Similar to Amazon’s AWS, Microsoft’s Azure, Google’s Cloud Engine, Saleforce’s Heroku, Redhat’s Openshift, etc.&lt;br /&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -273,8 +275,9 @@ CloudantDao –(implements)–&amp;gt; GenericDAO interface
     
       <item>
         <title>Configuring Spring MVC Async Threads</title>
-        <description>&lt;h3 id=&quot;spring-mvc-aync--awesome&quot;&gt;Spring MVC Aync – Awesome!&lt;/h3&gt;
-&lt;p&gt;The best thing I love about Spring web framework is the abundance of features and flexibility. The ‘callable’ async web request handler that came with &lt;a href=&quot;https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/&quot; target=&quot;_blank&quot;&gt;Spring MVC 3.2&lt;/a&gt; is one of them. Basically we can return a ‘callable’ wrapping the type you’d normally use – and it’ll auto-magically turn it into an async web call.&lt;br /&gt;
+        <description>&lt;h2 id=&quot;spring-mvc-aync-is-awesome&quot;&gt;Spring MVC Aync is Awesome!&lt;/h2&gt;
+
+&lt;p&gt;The thing I love most about Spring web framework is the abundance of features and flexibility. The ‘callable’ async web request handler that came with &lt;a href=&quot;https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/&quot; target=&quot;_blank&quot;&gt;Spring MVC 3.2&lt;/a&gt; is one of them. Basically we can return a ‘callable’ wrapping the type you’d normally use – and it’ll auto-magically turn it into an async web call.&lt;br /&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;Here is an example of it (Spring Boot + Java 8), this just echoes the request in the response:&lt;/p&gt;

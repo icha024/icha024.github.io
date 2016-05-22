@@ -16,6 +16,8 @@ categories:
   - Bluemix
   - Cloud
 ---
+## About Bluemix.
+
 Bluemix is a cloud service provider that let will host your web app for you on the cloud. Similar to Amazon’s AWS, Microsoft’s Azure, Google’s Cloud Engine, Saleforce’s Heroku, Redhat’s Openshift, etc.
 <!--more-->
 
