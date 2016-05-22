@@ -1,44 +1,68 @@
 ---
 layout: default
-body_class: "home-template user"
+menu: home
+css: ['index.css', 'sidebar-popular-repo.css']
 ---
-{% include header.html %}
+<!--<section class="jumbotron">-->
+<section class="jumbotron geopattern" data-pattern-id="lionobasasadb">
+    <div class="container">
+        <h1>{{ site.description }}</h1>
+        <div id="jumbotron-meta-info">
+            <!--<span class="meta-info">
+                <span class="octicon octicon-location"></span>
+                {{ site.location }}
+            </span>-->
+            <!--<span class="meta-info hvr-grow">
+                <span class="octicon octicon-organization"></span>
+                <a href="{{ site.company_url }}" target="_blank">{{ site.company }}</a>
+            </span>-->
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-mark-github"></span>
+                <a href="{{ site.github_url }}" target="_blank">Github</a>
+            </span>
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-comment"></span>
+                <a href="mailto:{{ site.email }}" target="_blank">Get in touch</a>
+            </span>
+        </div>
+    </div>
+</section>
+<section class="content container">
 
-<div class="page-content">
-  <div class="wrapper">
-    <div class="home">
-      {% for post in paginator.posts %}
-      <article class="{%comment%}post_class{%endcomment%}">
+    <div class="row">
 
-          {% if post.image %}
-              <div class="image-holder show">
-                <a href="{{ post.url | prepend: site.baseurl }}" class="inner" style="background-image: url('{{ site.baseurl }}/content/images/{{ post.image }}');">
-                  <img src="{{ site.baseurl }}/content/images/{{ post.image }}">
-              </a>
-            </div>
-          {% endif %}
+        <!-- Post List -->
+        <div class="col-md-8">
 
-          <div class="meta">
-            <time datetime="{{ post.date | date: '%Y-%m-%d' }}">
-              <a href="{{ post.url | prepend: site.baseurl }}">{{ post.date | date: "%B %-d, %Y" }}</a>
-            </time>
-          </div>
+            <ol class="post-list">
+                {% for post in paginator.posts %}
+                <li class="post-list-item">
+                    <h2 class="post-list-title">
+                        <a class="hvr-underline-from-center" href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                    </h2>
+                    <p class="post-list-description">
+                        {{ post.excerpt | strip_html | strip }}
+                    </p>
+                    <p class="post-list-meta">
+                        <span class="octicon octicon-calendar"></span> {{ post.date | date: "%Y/%m/%d" }}
+                    </p>
+                </li>
+                {% endfor %}
+            </ol>
 
-          <header>
-              <h1><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h1>
-          </header>
+            <!-- Pagination -->
+            {% include pagination.html %}
 
-          <div class="text">
-              <p>{{ post.excerpt }}</p>
-              <a href="{{ post.url | prepend: site.baseurl }}" class="readmore">Continue Reading</a>
-          </div>
-      </article>
-      {% endfor %}
+            <!-- Comments -->
+            {% include disqus-comments.html %}
+
+        </div>
+
+        <div class="col-md-4">
+            {% include sidebar-popular-repo.html %}
+        </div>
 
     </div>
-  </div>
-</div>
 
-{% include pagination.html %}
+</section>
 
-{% include footer.html %}

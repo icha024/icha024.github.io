@@ -2,163 +2,401 @@
 <html>
 
 <head>
-  
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <title>Clianz: Tech and stuff from NZ</title>
-  <meta name="description" content="Thoughts exploration on software, hardware, and all things in technology.
-">
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/images/favicon.png">
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="viewport" content="width=device-width initial-scale=1">
+    <title>Clianz</title>
+    <meta name="description"
+          content="Tech and Stuff from NZ">
 
-  <link rel="shortcut icon" href="">
+    <link rel="canonical" href="http://localhost:4000/page2/">
+    <link rel="alternate" type="application/rss+xml" title="Clianz" href="http://localhost:4000/feed.xml">
 
+    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
 
-  
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:400,700,400italic,700italic|Open+Sans:400italic,700italic,700,400">
-  <link rel="stylesheet" href="/css/screen.css">
+    <!-- Third-Party CSS -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/octicons/octicons/octicons.css">
+    <link rel="stylesheet" href="/bower_components/hover/css/hover-min.css">
+    <link rel="stylesheet" href="/bower_components/primer-markdown/dist/user-content.min.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
 
-  
-  <link rel="canonical" href="http://icha024.github.io/page2/">
-  <link rel="alternate" type="application/atom+xml" title="Clianz: Tech and stuff from NZ" href="http://icha024.github.io/feed.xml" />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/assets/css/common.css">
 
-  <script type="text/javascript" src="/assets/javascripts/jquery-2.1.4.min.js"></script>
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <!-- CSS set in page -->
+    
+    <link rel="stylesheet" href="/assets/css/index.css">
+    
+    <link rel="stylesheet" href="/assets/css/sidebar-popular-repo.css">
+    
 
-    ga('create', 'UA-71716738-1', 'auto');
-    ga('send', 'pageview');
-  </script>
+    <!-- CSS set in layout -->
+    
+
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </head>
 
 
-<body class="home-template user">
+    <body>
 
-    <header role="banner">
-<div class="wrap">
-  <h1>
-    <a class="site-title" href="/">Clianz: Tech and stuff from NZ</a>
-  </h1>
-  <hr>
-  <!--
-    <nav class="site-nav">
-    <div class="trigger">
-    
-    
-    <a class="page-link" href="/about/">About</a>
-    
-    
-    
-    
-    
-    
-    
-    
+    <header class="site-header">
+    <div class="container">
+        <a id="site-header-brand" href="/" title="Clianz">
+            <span class="octicon octicon-mention"></span> Clianz
+        </a>
+        <nav class="site-header-nav" role="navigation">
+            
+            <a href="/"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Home">
+                Home
+            </a>
+            
+            <a href="/open-source"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Open-Source">
+                Open-Source
+            </a>
+            
+            <a href="/blog"
+               class=" site-header-nav-item hvr-underline-from-center"
+               target=""
+               title="Blog">
+                Blog
+            </a>
+            
+        </nav>
     </div>
-    </nav>
-  -->
-</div>
 </header>
 
 
-<div class="page-content">
-  <div class="wrapper">
-    <div class="home">
-      
-      <article class="">
+        <div class="content">
+            <!--<section class="jumbotron">-->
+<section class="jumbotron geopattern" data-pattern-id="lionobasasadb">
+    <div class="container">
+        <h1>Tech and Stuff from NZ</h1>
+        <div id="jumbotron-meta-info">
+            <!--<span class="meta-info">
+                <span class="octicon octicon-location"></span>
+                My location
+            </span>-->
+            <!--<span class="meta-info hvr-grow">
+                <span class="octicon octicon-organization"></span>
+                <a href="http://www.clianz.com" target="_blank">Clianz</a>
+            </span>-->
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-mark-github"></span>
+                <a href="https://www.github.com/icha024" target="_blank">Github</a>
+            </span>
+            <span class="meta-info hvr-grow">
+                <span class="octicon octicon-comment"></span>
+                <a href="mailto:opportunities@clianz.com" target="_blank">Get in touch</a>
+            </span>
+        </div>
+    </div>
+</section>
+<section class="content container">
 
-          
+    <div class="row">
 
-          <div class="meta">
-            <time datetime="2016-01-15">
-              <a href="/2016/01/15/bluemix-config-parser-2/">January 15, 2016</a>
-            </time>
-          </div>
+        <!-- Post List -->
+        <div class="col-md-8">
 
-          <header>
-              <h1><a href="/2016/01/15/bluemix-config-parser-2/">Bluemix Config Parser (Java)</a></h1>
-          </header>
+            <ol class="post-list">
+                
+                <li class="post-list-item">
+                    <h2 class="post-list-title">
+                        <a class="hvr-underline-from-center" href="http://localhost:4000/2016/01/15/bluemix-config-parser-2/">Bluemix Config Parser (Java)</a>
+                    </h2>
+                    <p class="post-list-description">
+                        When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP_SERVICES environment variable. This is a handy util library for parsing Bluemix VCAP_SERVICES configurations JSON. Common configs classess are provided so it’ll even work with auto-completion on your favorite IDE. No more messy JSON config parsing!
+                    </p>
+                    <p class="post-list-meta">
+                        <span class="octicon octicon-calendar"></span> 2016/01/15
+                    </p>
+                </li>
+                
+            </ol>
 
-          <div class="text">
-              <p><p>When using Bluemix (CloudFoundry), services configuration are read by parsing the JSON from VCAP_SERVICES environment variable. This is a handy util library for parsing Bluemix VCAP_SERVICES configurations JSON. Common configs classess are provided so it’ll even work with auto-completion on your favorite IDE. No more messy JSON config parsing!</p>
+            <!-- Pagination -->
+            <div class="pagination text-align">
+    <div class="btn-group">
 
-</p>
-              <a href="/2016/01/15/bluemix-config-parser-2/" class="readmore">Continue Reading</a>
-          </div>
-      </article>
-      
+        
+        
+        <a href="/" class="btn btn-outline">&laquo;</a>
+        
+        
+
+        
+        <a href="/" class="btn btn-outline">1</a>
+        
+
+        
+        
+        <a href="javascript:;" class="active btn btn-outline">2</a>
+        
+        
+
+        
+        <button disabled="disabled" href="javascript:;" class="btn btn-outline">&raquo;</button>
+        
 
     </div>
-  </div>
+</div>
+
+            <!-- Comments -->
+            <div class="comments">
+    <div id="disqus_thread"></div>
+    <script>
+        /**
+         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+         */
+        /*
+         var disqus_config = function () {
+         this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+         this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+         };
+         */
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+
+            s.src = '///embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </div>
 
 
-    <a href="/" class="btn nav prev">
-      <span aria-hidden="true" data-icon=">"></span>
-      Newer
-    </a>
+        </div>
+
+        <div class="col-md-4">
+            <h3 class="sidebar-title">My Popular Repositories</h3>
 
 
-
-
-
-<footer role="contentinfo" class='post-footer'>
-    <div class="inner">
-        <div class="vcard">
-            <a href="/feed.xml" id="btn_feed" class="btn" title="Feed" target="_blank">
-                <span aria-hidden="true" data-icon=")"></span>
-                <strong>Feed</strong>
-            </a>
-
-            
-
-            <div class="details">
-                <h4><a href="http://icha024.github.io" class="url n">Clianz: Tech and stuff from NZ</a></h4>
-                <a href="http://icha024.github.io" class="js-remove-domain-schema">http://icha024.github.io</a><br>
+<div class="card text-center">
+    <div class="thumbnail">
+        <div class="card-image geopattern" data-pattern-id="spray-cloudant">
+            <div class="card-image-cell">
+                <h3 class="card-title">
+                    <a href="https://github.com/icha024/spray-cloudant" target="_blank">spray-cloudant</a>
+                </h3>
             </div>
         </div>
-        <div id="user_bio">
-            <div class="inner">
-                Thoughts exploration on software, hardware, and all things in technology.
-
+        <div class="caption">
+            <div class="card-description">
+                <p class="card-text">Scala Cloudant client for Spray/Akka</p>
+            </div>
+            <div class="card-text">
+                <span data-toggle="tooltip" class="meta-info" title="1 stars">
+                    <span class="octicon octicon-star"></span> 1
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="0 forks">
+                    <span class="octicon octicon-git-branch"></span> 0
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="Last updated：2016-05-22 01:29:22 UTC">
+                    <span class="octicon octicon-clock"></span>
+                    <time datetime="2016-05-22 01:29:22 UTC" title="2016-05-22 01:29:22 UTC">2016-05-22</time>
+                </span>
             </div>
         </div>
     </div>
+</div>
+
+<div class="card text-center">
+    <div class="thumbnail">
+        <div class="card-image geopattern" data-pattern-id="HelloScala">
+            <div class="card-image-cell">
+                <h3 class="card-title">
+                    <a href="https://github.com/icha024/HelloScala" target="_blank">HelloScala</a>
+                </h3>
+            </div>
+        </div>
+        <div class="caption">
+            <div class="card-description">
+                <p class="card-text"></p>
+            </div>
+            <div class="card-text">
+                <span data-toggle="tooltip" class="meta-info" title="1 stars">
+                    <span class="octicon octicon-star"></span> 1
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="0 forks">
+                    <span class="octicon octicon-git-branch"></span> 0
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="Last updated：2016-04-25 18:59:27 UTC">
+                    <span class="octicon octicon-clock"></span>
+                    <time datetime="2016-04-25 18:59:27 UTC" title="2016-04-25 18:59:27 UTC">2016-04-25</time>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="thumbnail">
+        <div class="card-image geopattern" data-pattern-id="go-geoindex">
+            <div class="card-image-cell">
+                <h3 class="card-title">
+                    <a href="https://github.com/icha024/go-geoindex" target="_blank">go-geoindex</a>
+                </h3>
+            </div>
+        </div>
+        <div class="caption">
+            <div class="card-description">
+                <p class="card-text">In-Memory GeoIndex for Go (Lang)</p>
+            </div>
+            <div class="card-text">
+                <span data-toggle="tooltip" class="meta-info" title="1 stars">
+                    <span class="octicon octicon-star"></span> 1
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="0 forks">
+                    <span class="octicon octicon-git-branch"></span> 0
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="Last updated：2016-02-20 16:48:38 UTC">
+                    <span class="octicon octicon-clock"></span>
+                    <time datetime="2016-02-20 16:48:38 UTC" title="2016-02-20 16:48:38 UTC">2016-02-20</time>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="thumbnail">
+        <div class="card-image geopattern" data-pattern-id="GAuth-TOTP">
+            <div class="card-image-cell">
+                <h3 class="card-title">
+                    <a href="https://github.com/icha024/GAuth-TOTP" target="_blank">GAuth-TOTP</a>
+                </h3>
+            </div>
+        </div>
+        <div class="caption">
+            <div class="card-description">
+                <p class="card-text">Validation Server for Google Authenticator</p>
+            </div>
+            <div class="card-text">
+                <span data-toggle="tooltip" class="meta-info" title="1 stars">
+                    <span class="octicon octicon-star"></span> 1
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="0 forks">
+                    <span class="octicon octicon-git-branch"></span> 0
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="Last updated：2016-02-20 16:48:11 UTC">
+                    <span class="octicon octicon-clock"></span>
+                    <time datetime="2016-02-20 16:48:11 UTC" title="2016-02-20 16:48:11 UTC">2016-02-20</time>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="thumbnail">
+        <div class="card-image geopattern" data-pattern-id="cloudant-spring-boot-starter">
+            <div class="card-image-cell">
+                <h3 class="card-title">
+                    <a href="https://github.com/icha024/cloudant-spring-boot-starter" target="_blank">cloudant-spring-boot-starter</a>
+                </h3>
+            </div>
+        </div>
+        <div class="caption">
+            <div class="card-description">
+                <p class="card-text">Cloudant/CouchDB Spring Boot Starter</p>
+            </div>
+            <div class="card-text">
+                <span data-toggle="tooltip" class="meta-info" title="1 stars">
+                    <span class="octicon octicon-star"></span> 1
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="1 forks">
+                    <span class="octicon octicon-git-branch"></span> 1
+                </span>
+                <span data-toggle="tooltip" class="meta-info" title="Last updated：2016-02-23 22:53:14 UTC">
+                    <span class="octicon octicon-clock"></span>
+                    <time datetime="2016-02-23 22:53:14 UTC" title="2016-02-23 22:53:14 UTC">2016-02-23</time>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+
+        // Enable bootstrap tooltip
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+        $('.geopattern').each(function(){
+            $(this).geopattern($(this).data('pattern-id'));
+        });
+
+    });
+</script>
+        </div>
+
+    </div>
+
+</section>
+
+
+        </div>
+
+    <footer class="container">
+
+    <div class="site-footer">
+
+        <div class="copyright pull-left">
+            <!-- 请不要更改这一行 方便其他人知道模板的来源 谢谢 -->
+            <!-- Please keep this line to let others know where this theme comes from. Thank you :D -->
+            Power by <a href="https://github.com/DONGChuan/Yummy-Jekyll">Yummy Jekyll</a>
+        </div>
+
+        <!--<a href="https://github.com/DONGChuan" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>-->
+
+        <div class="pull-right">
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+        </div>
+
+    </div>
+
+    <!-- Third-Party JS -->
+    <script type="text/javascript" src="/bower_components/geopattern/js/geopattern.min.js"></script>
+
+    <!-- My JS -->
+    <script type="text/javascript" src="/assets/js/script.js"></script>
+
+    
+
+    <!-- Google Analytics -->
+    <div style="display:none">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-71716738-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    </div>
+
 </footer>
 
 
-    <!--
-    
-    <a href="http://icha024.github.io" id="blog_badge">
-            <span style="background-image:
-            url('/assets/images/');"></span>
-        </a>
-    
-    -->
-
-    <script>
-        function no_schema_links() {
-            var links = document.querySelectorAll('.js-remove-domain-schema');
-            if (links) {
-                for (i = 0; i < links.length; ++i) {
-                    var link = links[i],
-                        text = link.innerHTML,
-                        no_schema = text.replace(/.*?:\/\//g, "");
-                    link.innerHTML = no_schema;
-                }
-            }
-        }
-
-        window.onload = function() {
-            no_schema_links();
-        }
-    </script>
-</body>
+    </body>
 
 </html>

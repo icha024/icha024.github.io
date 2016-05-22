@@ -1,22 +1,93 @@
-# Site settings
-title: "Clianz: Tech and stuff from NZ"
-#logo: logo.png # image from https://www.flickr.com/photos/lwr/5496279831/in/set-72157594159055823
-email: opportunities@clianz.com
-description: > # this means to ignore newlines until "url:"
-  Thoughts exploration on software, hardware, and all things in technology.
-url: "http://www.clianz.com"
-#baseurl: "/joon" # the subpath of your site, e.g. /blog/
-twitter_username: jekyllrb
-github_username:  jekyll
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-permalink: pretty
-paginate: 5
-excerpt_separator: <!--more-->
+# Site settings
+title: Clianz
+name: Ian
+email: opportunities@clianz.com
+location: My location
+company: Clianz
+company_url: http://www.clianz.com
+github_url: https://www.github.com/icha024
+description: Tech and Stuff from NZ
+favicon: favicon.png # Image must be in assets/images
+
+# The base hostname & protocol for your site
+# For local test, please use http://localhost:4000
+# For production, use your github page url. ex. http://icha024.github.io
+url: http://localhost:4000
+# url: http://www.clianz.com
+
+## Gem
+gems:
+  - jekyll-paginate
+  - jekyll-geo-pattern
+  - rouge
+  - kramdown
+  - jekyll-github-metadata
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
+lsi:         false
+excerpt_separator: "\n\n"
 
-gems:
-  - jekyll-sitemap
-  - jekyll-paginate
+source:      .
+destination: ./_site
+
+quiet:    false
+defaults: []
+
+kramdown:
+  input: GFM
+  enable_coderay: true
+
+# # Disque
+# disque: my_disque_settings # ex. httpicha024githubio.disqus.com
+
+# Pagination
+paginate: 5
+paginate_path: 'page:num'
+excerpt_separator: <!--more-->
+
+# Navigation. If you do not like these modules, just remove them :D
+navs:
+  -
+    href: /
+    label: Home
+
+  -
+    href: /open-source
+    label: Open-Source
+
+  -
+    href: /blog
+    label: Blog
+
+  # -
+  #   href: /bookmark
+  #   label: Bookmark
+
+  # -
+  #   href: /about
+  #   label: About
+
+# Sidebar to show popular repo
+side_bar_repo_limit: 5 # Number of repos to show
+
+# Google Analytics
+# analytics :
+#   provider : google
+#   google :
+#       tracking_id : 'UA-71716738-1'  # ex. UA-72165600-X
+
+
+# # For about.html. Fell free to create your own!
+# skill_software_keywords: [Java, C, C++, Qt, Python, MySQL, Oracle, SQLite, PL/SQL, Design Patterns]
+# skill_j2ee_keywords: [Spring, Struct, Hibernet, MyBatis, JSP]
+# skill_web_keywords: [HTML, CSS, JS, JQuery, Ajax, AngularJS, NodeJS, ExpressJS, MongoDB, Redis, PHP, Symfony, Boostrap]
+# skill_mobile_app_keywords: [Android, Sketch UI Desgin]
