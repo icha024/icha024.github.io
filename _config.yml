@@ -29,6 +29,7 @@ gems:
   - rouge
   - kramdown
   - jekyll-github-metadata
+  - jekyll-seo-tag
 
 # Build settings
 markdown: kramdown
