@@ -30,22 +30,20 @@ Now this is where it gets interesting - Clojure can be compiled to Javascript vi
 There are two ways to run ClojureScript + React, the first to build multi page app and build both server and client side in Clojure, the other way is to just build the frontend with it as a single page app. We're much more interested in the latter.
 
 1. **First download and install [Leiningen](http://leiningen.org/)** for building Clojure. Once installed, we can **generate the project** a new Reagent frontend project with this easily by running:
-
 ```
 lein new reagent-frontend myproject
 ```
 2. **To run it**:
-
 ```
 cd myproject
 lein cljsbuild auto
 ```
 3. **Open the html file** with your browser
-
 ```
 myproject/public/index.html
 ```
-You should see the 'Welcome to Reagent' demo page. Simple!
+
+You should see the **'Welcome to Reagent'** demo page. Simple!
 
 ## How did it work?
 
@@ -53,7 +51,6 @@ The Clojure script in
 
 ```
 myproject/src/myproject/core.cljs
-
 ```
 got compiled into a Javascript file at
 
@@ -96,12 +93,14 @@ Now let's have a look at the reactive part by demoing the obligatory live counte
   (mount-root))
 ```
 
-Refresh the index.html page and you will see the button with a counter below to increment count on click.
+Refresh the *index.html* page and you will see the button, with a counter below that increments count on click.
+
+Notice the component is 'mounted' to a HTML tag, and the content of the tag are eventually rendered via Javascript, this is React's framework in action. ClojureScript works nicely here with it's tag almost always matching the HTML ones, while not being as clutered as HTML itself - it reminds me of the lovely Jade template in NodeJS.
 
 [Demo code available on Github](https://github.com/icha024/clojurescript-react-playground/tree/freeze)
 
 ## More Reading
-- Reactive framework from Facebook: https://facebook.github.io/react/
-- Reagent framework: https://reagent-project.github.io/
+- Reactive framework from Facebook: [https://facebook.github.io/react/](https://facebook.github.io/react/)
+- Reagent framework: [https://reagent-project.github.io/]( https://reagent-project.github.io/)
 
 That's all for now, I got to go hone up my Clojure skills!

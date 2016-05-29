@@ -5,8 +5,8 @@
     <description>Tech and Stuff from NZ</description>
     <link>http://www.clianz.com/</link>
     <atom:link href="http://www.clianz.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 May 2016 13:53:51 +0100</pubDate>
-    <lastBuildDate>Sun, 29 May 2016 13:53:51 +0100</lastBuildDate>
+    <pubDate>Sun, 29 May 2016 14:06:47 +0100</pubDate>
+    <lastBuildDate>Sun, 29 May 2016 14:06:47 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -23,35 +23,28 @@
 &lt;p&gt;There are two ways to run ClojureScript + React, the first to build multi page app and build both server and client side in Clojure, the other way is to just build the frontend with it as a single page app. We’re much more interested in the latter.&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;First download and install &lt;a href=&quot;http://leiningen.org/&quot;&gt;Leiningen&lt;/a&gt;&lt;/strong&gt; for building Clojure. Once installed, we can &lt;strong&gt;generate the project&lt;/strong&gt; a new Reagent frontend project with this easily by running:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lein new reagent-frontend myproject
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;To run it&lt;/strong&gt;:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd myproject
+  &lt;li&gt;&lt;strong&gt;First download and install &lt;a href=&quot;http://leiningen.org/&quot;&gt;Leiningen&lt;/a&gt;&lt;/strong&gt; for building Clojure. Once installed, we can &lt;strong&gt;generate the project&lt;/strong&gt; a new Reagent frontend project with this easily by running:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;
+lein new reagent-frontend myproject
+&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;To run it&lt;/strong&gt;:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;
+cd myproject
 lein cljsbuild auto
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;strong&gt;Open the html file&lt;/strong&gt; with your browser&lt;/li&gt;
+&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Open the html file&lt;/strong&gt; with your browser&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;
+myproject/public/index.html
+&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;myproject/public/index.html
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;You should see the ‘Welcome to Reagent’ demo page. Simple!&lt;/p&gt;
+&lt;p&gt;You should see the &lt;strong&gt;‘Welcome to Reagent’&lt;/strong&gt; demo page. Simple!&lt;/p&gt;
 
 &lt;h2 id=&quot;how-did-it-work&quot;&gt;How did it work?&lt;/h2&gt;
 
 &lt;p&gt;The Clojure script in&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;myproject/src/myproject/core.cljs
-
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;p&gt;got compiled into a Javascript file at&lt;/p&gt;
@@ -95,14 +88,16 @@ lein cljsbuild auto
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Refresh the index.html page and you will see the button with a counter below to increment count on click.&lt;/p&gt;
+&lt;p&gt;Refresh the &lt;em&gt;index.html&lt;/em&gt; page and you will see the button, with a counter below that increments count on click.&lt;/p&gt;
+
+&lt;p&gt;Notice the component is ‘mounted’ to a HTML tag, and the content of the tag are eventually rendered via Javascript, this is React’s framework in action. ClojureScript works nicely here with it’s tag almost always matching the HTML ones, while not being as clutered as HTML itself - it reminds me of the lovely Jade template in NodeJS.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/icha024/clojurescript-react-playground/tree/freeze&quot;&gt;Demo code available on Github&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;more-reading&quot;&gt;More Reading&lt;/h2&gt;
 &lt;ul&gt;
-  &lt;li&gt;Reactive framework from Facebook: https://facebook.github.io/react/&lt;/li&gt;
-  &lt;li&gt;Reagent framework: https://reagent-project.github.io/&lt;/li&gt;
+  &lt;li&gt;Reactive framework from Facebook: &lt;a href=&quot;https://facebook.github.io/react/&quot;&gt;https://facebook.github.io/react/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Reagent framework: &lt;a href=&quot;https://reagent-project.github.io/&quot;&gt;https://reagent-project.github.io/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;That’s all for now, I got to go hone up my Clojure skills!&lt;/p&gt;
