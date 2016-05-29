@@ -5,8 +5,8 @@
     <description>Tech and Stuff from NZ</description>
     <link>http://www.clianz.com/</link>
     <atom:link href="http://www.clianz.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 May 2016 14:15:54 +0100</pubDate>
-    <lastBuildDate>Sun, 29 May 2016 14:15:54 +0100</lastBuildDate>
+    <pubDate>Sun, 29 May 2016 16:44:23 +0100</pubDate>
+    <lastBuildDate>Sun, 29 May 2016 16:44:23 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -110,9 +110,9 @@ lein cljsbuild auto
 
 &lt;p&gt;That’s all for now, I got to go hone up my Clojure skills!&lt;/p&gt;
 </description>
-        <pubDate>Fri, 27 May 2016 23:55:48 +0100</pubDate>
-        <link>http://www.clianz.com/2016/05/27/clojurescript-react-reagent/</link>
-        <guid isPermaLink="true">http://www.clianz.com/2016/05/27/clojurescript-react-reagent/</guid>
+        <pubDate>Sun, 29 May 2016 11:55:48 +0100</pubDate>
+        <link>http://www.clianz.com/2016/05/29/clojurescript-react-reagent/</link>
+        <guid isPermaLink="true">http://www.clianz.com/2016/05/29/clojurescript-react-reagent/</guid>
         
         <category>Clojure</category>
         
@@ -130,6 +130,156 @@ lein cljsbuild auto
         <category>React</category>
         
         <category>Reagent</category>
+        
+      </item>
+    
+      <item>
+        <title>Generating Java Spring-MVC code from Swagger Spec</title>
+        <description>&lt;p&gt;REST services skeleton code generation is a quick way to get started in implementing the service from popular Swagger spec describing the interface.&lt;/p&gt;
+
+&lt;p&gt;In this post we’ll look at generating Java Spring MVC code from Swagger spec. There are a few frameworks out there, but at the time I couldn’t find the one that I want - and so I’ve created a new template for my needs. Here is a quick walkthrough on setting up code-gen for Java Spring MVC project.&lt;br /&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;spring-mvc-java-templates&quot;&gt;Spring MVC Java Templates&lt;/h2&gt;
+&lt;p&gt;There are plenty of projects and templates out there there to generate skeleton server code from Swagger spec, but at the time I haven’t came across one that suit my needs. Ideally it should:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Take advantage of Java &lt;strong&gt;servlet 3.0+ async&lt;/strong&gt; feature.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate code for &lt;strong&gt;Spring MVC&lt;/strong&gt; (my preferred framework)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Integrate with the rest of my stack and build tools (&lt;strong&gt;Spring Boot + Maven&lt;/strong&gt;)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate &lt;strong&gt;code directly in target/gen&lt;/strong&gt;, instead of a new standalone stub that need us to manually copy/paste the bits we want.&lt;br /&gt;
+ This will be useful for updating Swagger spec on existing project, otherwise it’s messy trying to manually figure out what is fresh generated code and merge it with existing implementations.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;the-solution&quot;&gt;The Solution&lt;/h2&gt;
+
+&lt;h3 id=&quot;introducing-the-j8-async-template-in-swagger-codegen&quot;&gt;Introducing the j8-async template in Swagger-codegen&lt;/h3&gt;
+
+&lt;p&gt;The default Spring MVC template from Swagger codegen was a good start. The &lt;strong&gt;j8-async&lt;/strong&gt; template is a modified version of it with the following changes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Added &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;Callable&amp;gt;&lt;/code&gt; tag to response to use Spring’s async servlet feature.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Generate code with Java 8’s inteface default instead of a plain class.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This new template was &lt;a href=&quot;https://github.com/swagger-api/swagger-codegen/pull/1742&quot;&gt;merged into swagger-codegen version 2.1.5&lt;/a&gt;, you may choose to generate code with it by passing in ‘j8-async’ instead of the ‘default’&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Swagger codegen --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.swagger&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;swagger-core&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${swagger.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We’ll also need Spring-Fox dependency for codegen:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.springfox&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;springfox-swagger2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${springfox.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And the associated config in swagger-properties for api-docs:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;py&quot;&gt;springfox.documentation.swagger.v2.path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;/api-docs&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;combining-with-maven-plugin&quot;&gt;Combining with Maven plugin&lt;/h3&gt;
+&lt;p&gt;Normally the swagger-code gen project just generates stub, this is now what we want. There is a Maven plugin to get around this to generate code into our target/gen - combine this with the Java 8 interface default feature, and we have a generate stub with default implementation nicely integrated with your project.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- Generate REST default interface from Swagger spec --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;plugin&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;io.swagger&lt;span class=&quot;nt&quot;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;swagger-codegen-maven-plugin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;${swagger.codegen.version}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;executions&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;execution&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;goals&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;goal&amp;gt;&lt;/span&gt;generate&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goal&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/goals&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;inputSpec&amp;gt;&lt;/span&gt;src/main/resources/swagger.yaml&lt;span class=&quot;nt&quot;&gt;&amp;lt;/inputSpec&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;language&amp;gt;&lt;/span&gt;spring-mvc&lt;span class=&quot;nt&quot;&gt;&amp;lt;/language&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;configOptions&amp;gt;&lt;/span&gt;
+					&lt;span class=&quot;nt&quot;&gt;&amp;lt;sourceFolder&amp;gt;&lt;/span&gt;src/gen/java/main&lt;span class=&quot;nt&quot;&gt;&amp;lt;/sourceFolder&amp;gt;&lt;/span&gt;
+					&lt;span class=&quot;nt&quot;&gt;&amp;lt;library&amp;gt;&lt;/span&gt;j8-async&lt;span class=&quot;nt&quot;&gt;&amp;lt;/library&amp;gt;&lt;/span&gt;
+				&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configOptions&amp;gt;&lt;/span&gt;
+			&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;
+		&lt;span class=&quot;nt&quot;&gt;&amp;lt;/execution&amp;gt;&lt;/span&gt;
+	&lt;span class=&quot;nt&quot;&gt;&amp;lt;/executions&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/plugin&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Just point it to your swagger spec and pick the ‘j8-async’ option. Because it uses a default interface, it will already work out of the box with the stub response.&lt;/p&gt;
+
+&lt;h2 id=&quot;overriding-the-stub&quot;&gt;Overriding the stub&lt;/h2&gt;
+&lt;p&gt;To provide a custom implementation on the operation, just implemented the gerated API then override the stub method.&lt;/p&gt;
+
+&lt;p&gt;For example, here we generate Java stub for the Uber Swagger spec, then override the ‘/me’ operation by overriding the generated ‘MeApi’ interface:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@RestController&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MeService&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;implements&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MeApi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;c1&quot;&gt;// Tip: In Intellj, use alt-insert to select which operation to override.&lt;/span&gt;
+	&lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+	&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Callable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;meGet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;NotFoundException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;Profile&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profile&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+			&lt;span class=&quot;n&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setFirstName&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Ian&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+			&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ResponseEntity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;profile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpStatus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;OK&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+		&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
+	&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;We can pick which operations to override and customise easily as the swagger spec doc changes, no more manually copy/pasting from the stub!&lt;/p&gt;
+
+&lt;h2 id=&quot;sample-project-on-github&quot;&gt;Sample project on Github&lt;/h2&gt;
+&lt;p&gt;The sample project can be found at: &lt;a href=&quot;https://github.com/icha024/java-mvc-swagger-gen-demo&quot;&gt;https://github.com/icha024/java-mvc-swagger-gen-demo&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This uses the Uber Swagger spec as mentioned above, and override only the ‘Me’ API with custom inplementation.&lt;/p&gt;
+
+&lt;p&gt;Happy Swag Coding!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 29 May 2016 11:43:48 +0100</pubDate>
+        <link>http://www.clianz.com/2016/05/29/java-mvc-swagger-gen/</link>
+        <guid isPermaLink="true">http://www.clianz.com/2016/05/29/java-mvc-swagger-gen/</guid>
+        
+        <category>java</category>
+        
+        <category>swagger</category>
+        
+        <category>callable</category>
+        
+        <category>code-gen</category>
+        
+        <category>Spring MVC</category>
+        
+        
+        <category>Java</category>
+        
+        <category>Spring</category>
+        
+        <category>Swagger</category>
         
       </item>
     

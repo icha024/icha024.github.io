@@ -1,10 +1,10 @@
 ---
-id: 127
+id: 129
 title: Reagent - ClojureScript and React made easy 
-date: 2016-05-27T22:55:48+00:00
+date: 2016-05-29T10:55:48+00:00
 author: Ian
 layout: post
-permalink: /2016/05/27/clojurescript-react-reagent/
+permalink: /2016/05/29/clojurescript-react-reagent/
 mytory_md_mode:
   - url
 categories:
