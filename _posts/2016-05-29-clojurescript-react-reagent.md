@@ -29,16 +29,20 @@ Now this is where it gets interesting - Clojure can be compiled to Javascript vi
 
 There are two ways to run ClojureScript + React, the first to build multi page app and build both server and client side in Clojure, the other way is to just build the frontend with it as a single page app. We're much more interested in the latter.
 
-1. **First download and install [Leiningen](http://leiningen.org/)** for building Clojure. Once installed, we can **generate the project** a new Reagent frontend project with this easily by running:
+- **First download and install [Leiningen](http://leiningen.org/)** for building Clojure.
+Once installed, we can **generate the project** a new Reagent frontend project with this easily by running:
+
 ```
-lein new reagent-frontend myproject
+  lein new reagent-frontend myproject
 ```
-2. **To run it**:
+- **To run it**:
+
 ```
 cd myproject
 lein cljsbuild auto
 ```
-3. **Open the html file** with your browser
+- **Open the html file** with your browser
+
 ```
 myproject/public/index.html
 ```
