@@ -5,9 +5,45 @@
     <description>Tech and Stuff from NZ</description>
     <link>http://www.clianz.com/</link>
     <atom:link href="http://www.clianz.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 May 2016 16:44:23 +0100</pubDate>
-    <lastBuildDate>Sun, 29 May 2016 16:44:23 +0100</lastBuildDate>
+    <pubDate>Tue, 13 Sep 2016 21:23:58 +0100</pubDate>
+    <lastBuildDate>Tue, 13 Sep 2016 21:23:58 +0100</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Deploying Scala/Spray App on Cloud Foundry</title>
+        <description>&lt;p&gt;A few months ago I was playing with Scala/Spray on Bluemix (Cloud Foundry). Deploying it wasn’t as straight forward as I thought, here is what I learnt. &lt;br /&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;building-the-jar&quot;&gt;Building the Jar&lt;/h2&gt;
+
+&lt;p&gt;Creating a straight jar artefact with Maven shade plugin run perfectly on local machine. However, this artefact doesn’t seem to work on Bluemix when deployed.&lt;/p&gt;
+
+&lt;p&gt;This is strange because Cloud Foundry/Bluemix should support all standard JVM executable. A quick look at the &lt;a href=&quot;https://github.com/cloudfoundry/java-buildpack&quot;&gt;buildpack&lt;/a&gt; seem to suggest it does support a variety of artefact formats, so let’s go to plan B…&lt;/p&gt;
+
+&lt;h2 id=&quot;what-worked&quot;&gt;What worked&lt;/h2&gt;
+&lt;p&gt;One of the other artefact formats it support is the &lt;a href=&quot;https://github.com/cloudfoundry/java-buildpack/blob/master/docs/container-dist_zip.md&quot;&gt;distzip&lt;/a&gt; format. Once the build script was switched to generate artefact in that format, it worked!&lt;/p&gt;
+
+&lt;p&gt;Using the distzip format should be straight forward if you are using Gradle build system. If you prefer Maven, then check out &lt;a href=&quot;https://github.com/icha024/scala-forex/blob/master/pom.xml&quot;&gt;this build file&lt;/a&gt; in my demo project.&lt;/p&gt;
+
+&lt;p&gt;Once built, all that is left is to push the zip:&lt;br /&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;
+cf push awesomeServiceName -p awesome-projet-1.0-SNAPSHOT-bin.zip
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I haven’t looked back at why the basic Jar didn’t work, it’s something still on my ToDo list. Hope this helps if someone else ran into this problem.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 13 Sep 2016 09:21:49 +0100</pubDate>
+        <link>http://www.clianz.com/2016/09/13/deploying-scala-app-on-cloud-foundry/</link>
+        <guid isPermaLink="true">http://www.clianz.com/2016/09/13/deploying-scala-app-on-cloud-foundry/</guid>
+        
+        
+        <category>Bluemix</category>
+        
+        <category>Cloud</category>
+        
+        <category>Scala</category>
+        
+      </item>
     
       <item>
         <title>Reagent - ClojureScript and React made easy</title>
