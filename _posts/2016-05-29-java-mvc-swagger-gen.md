@@ -22,6 +22,9 @@ tags:
   - code-gen
   - Spring MVC
 ---
+
+**(Edit, July 2017: This Async Spring template in Swagger codegen is deprecated and no longer maintained. Please use the normal Spring template or use a custom template instead. You'll probably want the newer streaming API oriented convention in Spring 5.x anyway. The plugin and configuration example should still work with other available templates. Keeping this post for reference purposes)**
+
 REST services skeleton code generation is a quick way to get started in implementing the service from popular Swagger spec describing the interface.
 
 In this post we'll look at generating Java Spring MVC code from Swagger spec. There are a few frameworks out there, but at the time I couldn't find the one that I want - and so I've created a new template for my needs. Here is a quick walkthrough on setting up code-gen for Java Spring MVC project.
@@ -102,6 +105,7 @@ Normally the swagger-code gen project just generates stub, this is now what we w
 	</executions>
 </plugin>
 ```
+**(Edit, July 2017: This template deprecated, please use the other available ones, or specify a custom template intead)**
 
 Just point it to your swagger spec and pick the 'j8-async' option. Because it uses a default interface, it will already work out of the box with the stub response.
 
