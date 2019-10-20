@@ -13,7 +13,7 @@ location: My location
 company: Clianz
 company_url: http://www.clianz.com
 github_url: https://www.github.com/icha024
-description: Tech and Stuff from NZ
+description: Tech and Stuff
 favicon: favicon.png # Image must be in assets/images
 
 # The base hostname & protocol for your site
